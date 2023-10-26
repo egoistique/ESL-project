@@ -1,0 +1,2215 @@
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Wed Oct 25 15:20:00 2023
+
+# Variables
+
+# environment
+VSCODE_GIT_ASKPASS_MAIN = /home/user/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/extensions/git/dist/askpass-main.js
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# default
+.SHELLFLAGS := -c
+# makefile (from 'Makefile', line 3)
+OUTPUT_DIRECTORY := _build
+# environment
+XDG_SESSION_CLASS = user
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_memobj.c.o := ../../../../esl-nsdk/components/libraries/memobj/nrf_memobj.c
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/app_error_weak.c.o_INC := _build/nrf52840_xxaa.inc
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/app_error_weak.c.o_TGT := nrf52840_xxaa
+# environment
+XDG_SESSION_TYPE = tty
+# default
+CWEAVE = cweave
+# makefile (from 'Makefile', line 136)
+DEPENDENCIES :=  _build/nrf52840_xxaa/gcc_startup_nrf52840.S.d _build/nrf52840_xxaa/nrf_log_frontend.c.d _build/nrf52840_xxaa/nrf_log_str_formatter.c.d _build/nrf52840_xxaa/boards.c.d _build/nrf52840_xxaa/app_error.c.d _build/nrf52840_xxaa/app_error_handler_gcc.c.d _build/nrf52840_xxaa/app_error_weak.c.d _build/nrf52840_xxaa/app_util_platform.c.d _build/nrf52840_xxaa/nrf_assert.c.d _build/nrf52840_xxaa/nrf_atomic.c.d _build/nrf52840_xxaa/nrf_balloc.c.d _build/nrf52840_xxaa/nrf_fprintf.c.d _build/nrf52840_xxaa/nrf_fprintf_format.c.d _build/nrf52840_xxaa/nrf_memobj.c.d _build/nrf52840_xxaa/nrf_ringbuf.c.d _build/nrf52840_xxaa/nrf_strerror.c.d _build/nrf52840_xxaa/nrfx_atomic.c.d _build/nrf52840_xxaa/main.c.d _build/nrf52840_xxaa/system_nrf52840.c.d
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.posix', line 3)
+GNU_PREFIX = arm-none-eabi
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_log_str_formatter.c.o_INC := _build/nrf52840_xxaa.inc
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_log_str_formatter.c.o_TGT := nrf52840_xxaa
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# default
+MAKE_VERSION := 4.2.1
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/app_error_handler_gcc.c.o := ../../../../esl-nsdk/components/libraries/util/app_error_handler_gcc.c
+# makefile
+CURDIR := /home/user/ESL-project/pca10059/mbr/armgcc
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 58)
+MK := mkdir
+# makefile
+SHELL = /bin/sh
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 59)
+RM := rm -rf
+# default
+CO = co
+# makefile (from 'Makefile', line 136)
+INC_PATHS_nrf52840_xxaa := -I../../../../esl-nsdk/components -I../../../../esl-nsdk/modules/nrfx/mdk -I../../.. -I../../../../esl-nsdk/components/softdevice/mbr/headers -I../../../../esl-nsdk/components/libraries/strerror -I../../../../esl-nsdk/components/toolchain/cmsis/include -I../../../../esl-nsdk/components/libraries/util -I../config -I../../../../esl-nsdk/components/libraries/balloc -I../../../../esl-nsdk/components/libraries/ringbuf -I../../../../esl-nsdk/modules/nrfx/hal -I../../../../esl-nsdk/components/libraries/bsp -I../../../../esl-nsdk/components/libraries/log -I../../../../esl-nsdk/modules/nrfx -I../../../../esl-nsdk/components/libraries/experimental_section_vars -I../../../../esl-nsdk/components/libraries/delay -I../../../../esl-nsdk/integration/nrfx -I../../../../esl-nsdk/components/drivers_nrf/nrf_soc_nosd -I../../../../esl-nsdk/components/libraries/atomic -I../../../../esl-nsdk/components/boards -I../../../../esl-nsdk/components/libraries/memobj -I../../../../esl-nsdk/external/fprintf -I../../../../esl-nsdk/components/libraries/log/src
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 110)
+PLATFORM_SUFFIX := posix
+# makefile (from 'Makefile', line 136)
+OUTPUT_FILE := _build/nrf52840_xxaa
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_strerror.c.o_TGT := nrf52840_xxaa
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_ringbuf.c.o := ../../../../esl-nsdk/components/libraries/ringbuf/nrf_ringbuf.c
+# environment
+_ = /usr/bin/make
+# default
+PREPROCESS.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -F
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_memobj.c.o_INC := _build/nrf52840_xxaa.inc
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_memobj.c.o_TGT := nrf52840_xxaa
+# default
+LINK.m = $(OBJC) $(OBJCFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# default
+LINK.o = $(CC) $(LDFLAGS) $(TARGET_ARCH)
+# default
+OUTPUT_OPTION = -o $@
+# default
+COMPILE.cpp = $(COMPILE.cc)
+# makefile (from '_build/nrf52840_xxaa/system_nrf52840.c.d', line 1)
+MAKEFILE_LIST :=  Makefile ../../../../esl-nsdk/components/toolchain/gcc/Makefile.common ../../../../esl-nsdk/components/toolchain/gcc/Makefile.posix _build/nrf52840_xxaa/gcc_startup_nrf52840.S.d _build/nrf52840_xxaa/nrf_log_frontend.c.d _build/nrf52840_xxaa/nrf_log_str_formatter.c.d _build/nrf52840_xxaa/boards.c.d _build/nrf52840_xxaa/app_error.c.d _build/nrf52840_xxaa/app_error_handler_gcc.c.d _build/nrf52840_xxaa/app_error_weak.c.d _build/nrf52840_xxaa/app_util_platform.c.d _build/nrf52840_xxaa/nrf_assert.c.d _build/nrf52840_xxaa/nrf_atomic.c.d _build/nrf52840_xxaa/nrf_balloc.c.d _build/nrf52840_xxaa/nrf_fprintf.c.d _build/nrf52840_xxaa/nrf_fprintf_format.c.d _build/nrf52840_xxaa/nrf_memobj.c.d _build/nrf52840_xxaa/nrf_ringbuf.c.d _build/nrf52840_xxaa/nrf_strerror.c.d _build/nrf52840_xxaa/nrfx_atomic.c.d _build/nrf52840_xxaa/main.c.d _build/nrf52840_xxaa/system_nrf52840.c.d
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/app_error_handler_gcc.c.o_INC := _build/nrf52840_xxaa.inc
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/app_error_handler_gcc.c.o_TGT := nrf52840_xxaa
+# makefile (from 'Makefile', line 98)
+ASMFLAGS = -g3 -mcpu=cortex-m4 -mthumb -mabi=aapcs -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DBOARD_PCA10059 -DBSP_DEFINES_ONLY -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -DMBR_PRESENT -DNRF52840_XXAA
+# 'override' directive
+GNUMAKEFLAGS := 
+# default
+LINK.p = $(PC) $(PFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_ringbuf.c.o_INC := _build/nrf52840_xxaa.inc
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_ringbuf.c.o_TGT := nrf52840_xxaa
+# makefile (from 'Makefile', line 87)
+CXXFLAGS = $(OPT)
+# makefile (from 'Makefile', line 9)
+PROJ_DIR := ../../..
+# environment
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/app_error.c.o := ../../../../esl-nsdk/components/libraries/util/app_error.c
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 137)
+CC :=   '/usr/bin/arm-none-eabi-gcc'
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/gcc_startup_nrf52840.S.o_INC := _build/nrf52840_xxaa.inc
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/gcc_startup_nrf52840.S.o_TGT := nrf52840_xxaa
+# default
+CHECKOUT,v = +$(if $(wildcard $@),,$(CO) $(COFLAGS) $< $@)
+# makefile (from 'Makefile', line 5)
+DFU_PORT = /dev/ttyACM0
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_atomic.c.o := ../../../../esl-nsdk/components/libraries/atomic/nrf_atomic.c
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# makefile (from 'Makefile', line 117)
+LIB_FILES =  -lc -lnosys -lm
+# default
+CPP = $(CC) -E
+# default
+LINK.cc = $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/app_util_platform.c.o := ../../../../esl-nsdk/components/libraries/util/app_util_platform.c
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_strerror.c.o_INC := _build/nrf52840_xxaa.inc
+# environment
+SSH_CONNECTION = 10.0.2.2 55083 10.0.2.15 22
+# environment
+PATH = /home/user/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/bin/remote-cli:/home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/user/.local/bin:/home/user/.local/bin
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/app_error.c.o_TGT := nrf52840_xxaa
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/system_nrf52840.c.o := ../../../../esl-nsdk/modules/nrfx/mdk/system_nrf52840.c
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 111)
+TOOLCHAIN_CONFIG_FILE := ../../../../esl-nsdk/components/toolchain/gcc/Makefile.posix
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 124)
+LD := '/usr/bin/arm-none-eabi-ld'
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 160)
+bind_obj_with_src = $(eval $(1)     := $(2)) $(eval $(1)_INC := $(3)) $(eval $(1)_TGT := $(4)) $(eval $(1): Makefile | $(dir $(1)).) $(if $(GENERATE_INC_FILE), $(eval $(1): $(3)))
+# default
+TEXI2DVI = texi2dvi
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 153)
+GENERATE_INC_FILE := 
+# default
+YACC = yacc
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_atomic.c.o_INC := _build/nrf52840_xxaa.inc
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_atomic.c.o_TGT := nrf52840_xxaa
+# default
+COMPILE.mod = $(M2C) $(M2FLAGS) $(MODFLAGS) $(TARGET_ARCH)
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/boards.c.o_TGT := nrf52840_xxaa
+# makefile (from 'Makefile', line 84)
+CFLAGS = $(OPT) -DBOARD_PCA10059 -DBSP_DEFINES_ONLY -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -DMBR_PRESENT -DNRF52840_XXAA -mcpu=cortex-m4 -mthumb -mabi=aapcs -Wall -Werror -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums
+# default
+ARFLAGS = rv
+# default
+LINK.r = $(FC) $(FFLAGS) $(RFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 107)
+PROGRESS = $1
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/app_util_platform.c.o_INC := _build/nrf52840_xxaa.inc
+# default
+LINT = lint
+# default
+COMPILE.f = $(FC) $(FFLAGS) $(TARGET_ARCH) -c
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 246)
+CONTENT_TO_DUMP := 
+# default
+LINT.c = $(LINT) $(LINTFLAGS) $(CPPFLAGS) $(TARGET_ARCH)
+# default
+YACC.m = $(YACC) $(YFLAGS)
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/system_nrf52840.c.o_INC := _build/nrf52840_xxaa.inc
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/system_nrf52840.c.o_TGT := nrf52840_xxaa
+# default
+YACC.y = $(YACC) $(YFLAGS)
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 50)
+ABSOLUTE_PATHS = 0
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 123)
+AR := '/usr/bin/arm-none-eabi-ar' -r
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 65)
+NO_ECHO := @
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 241)
+dump = $(eval CONTENT_TO_DUMP := $(1)) "$(MAKE)" -s --no-print-directory -f "$(TEMPLATE_PATH)/dump.mk" VARIABLE=CONTENT_TO_DUMP
+# environment
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-d43fd891-421f-4bcc-966c-9d8d96874fed.sock
+# makefile (from 'Makefile', line 108)
+LDFLAGS = $(OPT) -mthumb -mabi=aapcs -L$(SDK_ROOT)/modules/nrfx/mdk -T$(LINKER_SCRIPT) -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -Wl,--gc-sections --specs=nano.specs
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/main.c.o := ../../../main.c
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# default
+TANGLE = tangle
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# default
+GET = get
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 128)
+SIZE := '/usr/bin/arm-none-eabi-size'
+# automatic
+%F = $(notdir $%)
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 231)
+define_library = $(eval OUTPUT_FILE := $(OUTPUT_DIRECTORY)/$(strip $(1))) $(eval $(1) := $(2)) $(call prepare_build, $(1), $(OUTPUT_FILE).inc, $(1))
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_fprintf_format.c.o_INC := _build/nrf52840_xxaa.inc
+# default
+COMPILE.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# default
+CTANGLE = ctangle
+# makefile (from 'Makefile', line 66)
+OPT = -O3 -g3
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/main.c.o_INC := _build/nrf52840_xxaa.inc
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/main.c.o_TGT := nrf52840_xxaa
+# default
+.LIBPATTERNS = lib%.so lib%.a
+# default
+LINK.C = $(LINK.cc)
+# environment
+PWD = /home/user/ESL-project/pca10059/mbr/armgcc
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_assert.c.o_TGT := nrf52840_xxaa
+# default
+.LOADED := 
+# default
+LINK.S = $(CC) $(ASFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_MACH)
+# default
+PREPROCESS.r = $(FC) $(FFLAGS) $(RFLAGS) $(TARGET_ARCH) -F
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# default
+LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 143)
+ensure_exists_each = $(foreach item, $(2), $(if $(wildcard $(item)),, $(warning Cannot find $(1): $(item))))
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_log_frontend.c.o := ../../../../esl-nsdk/components/libraries/log/src/nrf_log_frontend.c
+# default
+LINK.s = $(CC) $(ASFLAGS) $(LDFLAGS) $(TARGET_MACH)
+# environment
+HOME = /home/user
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# environment
+LOGNAME = user
+# automatic
++F = $(notdir $+)
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 152)
+INC_PATHS = $(call target_specific, INC_PATHS, $($@_TGT))
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/boards.c.o_INC := _build/nrf52840_xxaa.inc
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_log_frontend.c.o_INC := _build/nrf52840_xxaa.inc
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_log_frontend.c.o_TGT := nrf52840_xxaa
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 51)
+PASS_INCLUDE_PATHS_VIA_FILE = 0
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.posix', line 2)
+GNU_VERSION = 9.3.1
+# environment
+MAKELEVEL := 0
+# environment
+VSCODE_GIT_IPC_HANDLE = /run/user/1000/vscode-git-51270badc8.sock
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 48)
+VERBOSE = 0
+# default
+COMPILE.m = $(OBJC) $(OBJCFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# environment
+COLORTERM = truecolor
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := dfu
+# environment
+SHLVL = 1
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 125)
+NM := '/usr/bin/arm-none-eabi-nm'
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 122)
+AS := '/usr/bin/arm-none-eabi-as'
+# default
+PREPROCESS.S = $(CC) -E $(CPPFLAGS)
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/app_util_platform.c.o_TGT := nrf52840_xxaa
+# default
+COMPILE.p = $(PC) $(PFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# environment
+XDG_SESSION_ID = 3
+# environment
+USER = user
+# default
+FC = f77
+# makefile
+.DEFAULT_GOAL := default
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_balloc.c.o := ../../../../esl-nsdk/components/libraries/balloc/nrf_balloc.c
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_fprintf.c.o := ../../../../esl-nsdk/external/fprintf/nrf_fprintf.c
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 222)
+define_target = $(eval OUTPUT_FILE := $(OUTPUT_DIRECTORY)/$(strip $(1))) $(eval $(1): $(OUTPUT_FILE).out $(OUTPUT_FILE).hex $(OUTPUT_FILE).bin ; @echo DONE $(strip $(1))) $(call prepare_build, $(1), $(OUTPUT_FILE).inc, $(OUTPUT_FILE).out)
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 180)
+get_object_files = $(call ensure_exists_each,source file, $(3)) $(foreach src_file, $(3), $(eval obj_file := $(call get_object_file_name, $(1), $(src_file))) $(eval DEPENDENCIES += $(obj_file:.o=.d)) $(call bind_obj_with_src, $(obj_file), $(src_file), $(2), $(1)) $(obj_file))
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 265)
+run = $(info $(call PROGRESS,$(3) file: $(notdir $($@)))) $(NO_ECHO)$(1) -MP -MD -c -o $@ $(call get_path,$($@)) $(2) $(INC_PATHS)
+# default
+WEAVE = weave
+# default
+MAKE_COMMAND := make
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 284)
+LD_INPUT = @$(@:.out=.in)
+# default
+LINK.cpp = $(LINK.cc)
+# default
+F77 = $(FC)
+# environment
+OLDPWD = /home/user/ESL-project
+# environment
+VSCODE_GIT_ASKPASS_EXTRA_ARGS = 
+# environment
+TERM_PROGRAM = vscode
+# default
+.VARIABLES := 
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_balloc.c.o_TGT := nrf52840_xxaa
+# default
+PC = pc
+# automatic
+*F = $(notdir $*)
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.posix', line 1)
+GNU_INSTALL_ROOT = /usr/bin/
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 283)
+GENERATE_LD_INPUT_FILE = $(call dump, $^ $(LIB_FILES)) > $(@:.out=.in)
+# environment
+VSCODE_GIT_ASKPASS_NODE = /home/user/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/node
+# makefile (from 'Makefile', line 2)
+TARGETS := nrf52840_xxaa
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_fprintf.c.o_TGT := nrf52840_xxaa
+# default
+COMPILE.def = $(M2C) $(M2FLAGS) $(DEFFLAGS) $(TARGET_ARCH)
+# default
+LEX = lex
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrfx_atomic.c.o := ../../../../esl-nsdk/modules/nrfx/soc/nrfx_atomic.c
+# makefile
+MAKEFLAGS = p
+# environment
+MFLAGS = -p
+# environment
+SSH_CLIENT = 10.0.2.2 55083 22
+# environment
+TERM_PROGRAM_VERSION = 1.83.1
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 198)
+get_path = $1
+# default
+LEX.l = $(LEX) $(LFLAGS) -t
+# default
+LEX.m = $(LEX) $(LFLAGS) -t
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_fprintf_format.c.o := ../../../../esl-nsdk/external/fprintf/nrf_fprintf_format.c
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# default
+COMPILE.r = $(FC) $(FFLAGS) $(RFLAGS) $(TARGET_ARCH) -c
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 126)
+OBJDUMP := '/usr/bin/arm-none-eabi-objdump'
+# makefile (from 'Makefile', line 4)
+DFU_PACKAGE := _build/nrf52840_xxaa.dfu
+# environment
+BROWSER = /home/user/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/bin/helpers/browser.sh
+# default
+M2C = m2c
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 135)
+CCACHE := $(subst ,, )
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrfx_atomic.c.o_INC := _build/nrf52840_xxaa.inc
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrfx_atomic.c.o_TGT := nrf52840_xxaa
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 52)
+PASS_LINKER_INPUT_VIA_FILE = 1
+# 'override' directive
+.SHELLSTATUS := 0
+# environment
+GIT_ASKPASS = /home/user/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/extensions/git/dist/askpass.sh
+# default
+MAKEFILES := 
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_fprintf_format.c.o_TGT := nrf52840_xxaa
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_assert.c.o := ../../../../esl-nsdk/components/libraries/util/nrf_assert.c
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_fprintf.c.o_INC := _build/nrf52840_xxaa.inc
+# default
+COMPILE.cc = $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# automatic
+<F = $(notdir $<)
+# makefile (from 'Makefile', line 131)
+TEMPLATE_PATH := ../../../../esl-nsdk/components/toolchain/gcc
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 121)
+CXX := '/usr/bin/arm-none-eabi-c++'
+# makefile (from 'Makefile', line 1)
+PROJECT_NAME := blinky_pca10059_mbr
+# makefile (from 'Makefile', line 136)
+obj_file := _build/nrf52840_xxaa/system_nrf52840.c.o
+# default
+COFLAGS = 
+# makefile (from 'Makefile', line 37)
+INC_FOLDERS = $(SDK_ROOT)/components $(SDK_ROOT)/modules/nrfx/mdk $(PROJ_DIR) $(SDK_ROOT)/components/softdevice/mbr/headers $(SDK_ROOT)/components/libraries/strerror $(SDK_ROOT)/components/toolchain/cmsis/include $(SDK_ROOT)/components/libraries/util ../config $(SDK_ROOT)/components/libraries/balloc $(SDK_ROOT)/components/libraries/ringbuf $(SDK_ROOT)/modules/nrfx/hal $(SDK_ROOT)/components/libraries/bsp $(SDK_ROOT)/components/libraries/log $(SDK_ROOT)/modules/nrfx $(SDK_ROOT)/components/libraries/experimental_section_vars $(SDK_ROOT)/components/libraries/delay $(SDK_ROOT)/integration/nrfx $(SDK_ROOT)/components/drivers_nrf/nrf_soc_nosd $(SDK_ROOT)/components/libraries/atomic $(SDK_ROOT)/components/boards $(SDK_ROOT)/components/libraries/memobj $(SDK_ROOT)/external/fprintf $(SDK_ROOT)/components/libraries/log/src 
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/app_error.c.o_INC := _build/nrf52840_xxaa.inc
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 49)
+PRETTY = 0
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_assert.c.o_INC := _build/nrf52840_xxaa.inc
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/gcc_startup_nrf52840.S.o := ../../../../esl-nsdk/asd/modules/nrfx/mdk/gcc_startup_nrf52840.S
+# default
+COMPILE.C = $(COMPILE.cc)
+# automatic
+^F = $(notdir $^)
+# default
+COMPILE.S = $(CC) $(ASFLAGS) $(CPPFLAGS) $(TARGET_MACH) -c
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 127)
+OBJCOPY := '/usr/bin/arm-none-eabi-objcopy'
+# default
+LINK.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# makefile (from 'Makefile', line 15)
+SRC_FILES = $(SDK_ROOT)/asd/modules/nrfx/mdk/gcc_startup_nrf52840.S $(SDK_ROOT)/components/libraries/log/src/nrf_log_frontend.c $(SDK_ROOT)/components/libraries/log/src/nrf_log_str_formatter.c $(SDK_ROOT)/components/boards/boards.c $(SDK_ROOT)/components/libraries/util/app_error.c $(SDK_ROOT)/components/libraries/util/app_error_handler_gcc.c $(SDK_ROOT)/components/libraries/util/app_error_weak.c $(SDK_ROOT)/components/libraries/util/app_util_platform.c $(SDK_ROOT)/components/libraries/util/nrf_assert.c $(SDK_ROOT)/components/libraries/atomic/nrf_atomic.c $(SDK_ROOT)/components/libraries/balloc/nrf_balloc.c $(SDK_ROOT)/external/fprintf/nrf_fprintf.c $(SDK_ROOT)/external/fprintf/nrf_fprintf_format.c $(SDK_ROOT)/components/libraries/memobj/nrf_memobj.c $(SDK_ROOT)/components/libraries/ringbuf/nrf_ringbuf.c $(SDK_ROOT)/components/libraries/strerror/nrf_strerror.c $(SDK_ROOT)/modules/nrfx/soc/nrfx_atomic.c $(PROJ_DIR)/main.c $(SDK_ROOT)/modules/nrfx/mdk/system_nrf52840.c 
+# default
+SUFFIXES := .out .a .ln .o .c .cc .C .cpp .p .f .F .m .r .y .l .ym .yl .s .S .mod .sym .def .h .info .dvi .tex .texinfo .texi .txinfo .w .ch .web .sh .elc .el
+# default
+COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 202)
+get_inc_paths = $(call ensure_exists_each,include folder,$(1)) $(foreach folder,$(1),-I$(call get_path,$(folder)))
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 173)
+get_object_file_name = $(OUTPUT_DIRECTORY)/$(strip $(1))/$(notdir $(2:%.s=%.s.o)).o
+# default
+COMPILE.s = $(AS) $(ASFLAGS) $(TARGET_MACH)
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# default
+.RECIPEPREFIX := 
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 191)
+target_specific = $($(addsuffix _$(strip $(2)), $(1)))
+# default
+MAKEINFO = makeinfo
+# default
+MAKE_TERMERR := /dev/pts/0
+# default
+OBJC = cc
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_balloc.c.o_INC := _build/nrf52840_xxaa.inc
+# default
+TEX = tex
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/app_error_weak.c.o := ../../../../esl-nsdk/components/libraries/util/app_error_weak.c
+# environment
+LANG = en_US.UTF-8
+# environment
+TERM = xterm-256color
+# default
+F77FLAGS = $(FFLAGS)
+# default
+LINK.f = $(FC) $(FFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 210)
+prepare_build = $(eval DEPENDENCIES :=) $(eval $(3): $(call get_object_files, $(1), $(2), $(SRC_FILES) $(call target_specific, SRC_FILES, $(1)))) $(eval -include $(DEPENDENCIES)) $(eval INC_PATHS_$(strip $(1)) := $(call get_inc_paths, $(INC_FOLDERS) $(call target_specific, INC_FOLDERS, $(1))))
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/boards.c.o := ../../../../esl-nsdk/components/boards/boards.c
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_strerror.c.o := ../../../../esl-nsdk/components/libraries/strerror/nrf_strerror.c
+# makefile (from 'Makefile', line 8)
+SDK_ROOT = ../../../../esl-nsdk
+# makefile (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 115)
+quote = '$(subst ','\'',$(1))'
+# environment
+MOTD_SHOWN = pam
+# makefile (from 'Makefile', line 136)
+_build/nrf52840_xxaa/nrf_log_str_formatter.c.o := ../../../../esl-nsdk/components/libraries/log/src/nrf_log_str_formatter.c
+# variable set hash-table stats:
+# Load=245/1024=24%, Rehash=0, Collisions=222/809=27%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# _build/nrf52840_xxaa (device 2050, inode 4980861): 40 files, no impossibilities.
+# SCCS: could not be stat'd.
+# ../../../../esl-nsdk/components/toolchain/gcc (device 2050, inode 4197081): 7 files, no impossibilities.
+# . (device 2050, inode 4980851): 6 files, no impossibilities.
+# _build/nrf52840_xxaa/SCCS: could not be stat'd.
+# ../../../../esl-nsdk/components/toolchain/gcc/SCCS: could not be stat'd.
+# _build/nrf52840_xxaa/RCS: could not be stat'd.
+# ../../../../esl-nsdk/components/toolchain/gcc/RCS: could not be stat'd.
+# ../../../../../../modules/nrfx/mdk: could not be stat'd.
+# ../../../../../../modules/nrfx/mdk/SCCS: could not be stat'd.
+# ../../../../../../modules/nrfx/mdk/RCS: could not be stat'd.
+# _build (device 2050, inode 4980854): No files, no impossibilities so far.
+# RCS: could not be stat'd.
+
+# 53 files, no impossibilities in 13 directories.
+
+# Implicit Rules
+
+%.d:
+
+_build/%/.: | _build
+#  recipe to execute (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 256):
+	cd $(OUTPUT_DIRECTORY) && $(MK) $*
+
+_build/%.inc: Makefile | _build
+#  recipe to execute (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 259):
+	$(info Generating $@)
+	$(NO_ECHO)$(call dump, $(call target_specific, INC_PATHS, $*)) > $@
+
+%.c.o:
+#  recipe to execute (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 272):
+	$(call run,$(CC) -std=c99,$(CFLAGS),Compiling)
+
+%.cpp.o:
+#  recipe to execute (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 276):
+	$(call run,$(CXX),$(CFLAGS) $(CXXFLAGS),Compiling)
+
+%.S.o %.s.o.o:
+#  recipe to execute (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 280):
+	$(call run,$(CC) -x assembler-with-cpp,$(ASMFLAGS),Assembling)
+
+%.out:
+#  recipe to execute (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 292):
+	$(info $(call PROGRESS,Linking target: $@))
+	$(NO_ECHO)$(GENERATE_LD_INPUT_FILE)
+	$(NO_ECHO)$(CC) $(LDFLAGS) $(LD_INPUT) -Wl,-Map=$(@:.out=.map) -o $@
+	$(NO_ECHO)$(SIZE) $@
+
+%.bin: %.out
+#  recipe to execute (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 299):
+	$(info Preparing: $@)
+	$(NO_ECHO)$(OBJCOPY) -O binary $< $@
+
+%.hex: %.out
+#  recipe to execute (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 304):
+	$(info Preparing: $@)
+	$(NO_ECHO)$(OBJCOPY) -O ihex $< $@
+
+(%): %
+#  recipe to execute (built-in):
+	$(AR) $(ARFLAGS) $@ $<
+
+%.out: %
+#  recipe to execute (built-in):
+	@rm -f $@ 
+	 cp $< $@
+
+%.c: %.w %.ch
+#  recipe to execute (built-in):
+	$(CTANGLE) $^ $@
+
+%.tex: %.w %.ch
+#  recipe to execute (built-in):
+	$(CWEAVE) $^ $@
+
+%:: %,v
+#  recipe to execute (built-in):
+	$(CHECKOUT,v)
+
+%:: RCS/%,v
+#  recipe to execute (built-in):
+	$(CHECKOUT,v)
+
+%:: RCS/%
+#  recipe to execute (built-in):
+	$(CHECKOUT,v)
+
+%:: s.%
+#  recipe to execute (built-in):
+	$(GET) $(GFLAGS) $(SCCS_OUTPUT_OPTION) $<
+
+%:: SCCS/s.%
+#  recipe to execute (built-in):
+	$(GET) $(GFLAGS) $(SCCS_OUTPUT_OPTION) $<
+
+# 18 implicit rules, 5 (27.8%) terminal.
+
+# Files
+
+/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.web.p:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TANGLE) $<
+
+_build/nrf52840_xxaa/nrf_strerror.c.o: Makefile ../../../../../../components/libraries/strerror/nrf_strerror.c ../../../../../../components/libraries/util/sdk_common.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h /usr/include/newlib/string.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/machine/_default_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/sys/string.h ../config/sdk_config.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/sdk_os.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/util/app_util.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/softdevice/mbr/headers/nrf_mbr.h ../../../../../../components/softdevice/mbr/headers/nrf_svc.h ../../../../../../components/libraries/util/sdk_macros.h ../../../../../../components/libraries/util/nrf_assert.h ../../../../../../components/libraries/strerror/nrf_strerror.h ../../../../../../components/libraries/util/sdk_errors.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/sys/reent.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa/nrf_memobj.c.o: Makefile ../../../../../../components/libraries/memobj/nrf_memobj.c ../../../../../../components/libraries/memobj/nrf_memobj.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h /usr/include/newlib/stdlib.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/sys/features.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/machine/_default_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/machine/stdlib.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/balloc/nrf_balloc.h ../config/sdk_config.h ../../../../../../components/libraries/util/app_util_platform.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/nrf_assert.h ../../../../../../components/libraries/util/app_error.h /usr/include/newlib/stdio.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h /usr/include/newlib/sys/types.h /usr/include/newlib/sys/_stdint.h /usr/include/newlib/sys/_pthreadtypes.h /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../components/libraries/util/app_error_weak.h ../../../../../../components/libraries/util/app_util.h ../../../../../../components/softdevice/mbr/headers/nrf_mbr.h ../../../../../../components/softdevice/mbr/headers/nrf_svc.h ../../../../../../components/libraries/log/nrf_log_instance.h ../../../../../../components/libraries/experimental_section_vars/nrf_section.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../components/libraries/log/nrf_log_types.h ../../../../../../components/libraries/atomic/nrf_atomic.h ../../../../../../components/libraries/util/sdk_common.h /usr/include/newlib/string.h /usr/include/newlib/sys/string.h ../../../../../../components/libraries/util/sdk_os.h ../../../../../../components/libraries/util/app_util.h ../../../../../../components/libraries/util/sdk_macros.h ../../../../../../components/libraries/util/nrf_assert.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/delay/nrf_delay.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.l.r:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LEX.l) $< > $@ 
+	 mv -f lex.yy.r $@
+
+# Not a target:
+_build/nrf52840_xxaa/main.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+../../../../../../integration/nrfx/nrfx_config.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/util/nrf_assert.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/newlib.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/log/src/nrf_log_internal.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa/app_error_handler_gcc.c.o: Makefile ../../../../../../components/libraries/util/app_error_handler_gcc.c ../../../../../../components/libraries/util/sdk_common.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h /usr/include/newlib/string.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/machine/_default_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/sys/string.h ../config/sdk_config.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/sdk_os.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/util/app_util.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/softdevice/mbr/headers/nrf_mbr.h ../../../../../../components/softdevice/mbr/headers/nrf_svc.h ../../../../../../components/libraries/util/sdk_macros.h ../../../../../../components/libraries/util/nrf_assert.h ../../../../../../components/libraries/util/app_error.h /usr/include/newlib/stdio.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h /usr/include/newlib/sys/types.h /usr/include/newlib/sys/_stdint.h /usr/include/newlib/sys/_pthreadtypes.h /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h ../../../../../../components/libraries/util/app_error_weak.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.dvi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+../../../../../../components/libraries/ringbuf/nrf_ringbuf.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa.dfu: _build/nrf52840_xxaa.hex
+#  Implicit rule search has not been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 143):
+	@echo Creating DFU package: $(DFU_PACKAGE)
+	nrfutil pkg generate \
+	   --hw-version 52 \
+	   --application-version 1 \
+	   --sd-req 0x0,0x102 \
+	   --sd-id 0x102 \
+	   --application $< \
+	   --softdevice $(SDK_ROOT)/components/softdevice/s113/hex/s113_nrf52_7.2.0_softdevice.hex $@
+
+# Not a target:
+../../../../../../components/libraries/util/app_error_weak.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.ym:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/mdk/system_nrf52_approtect.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa/nrf_ringbuf.c.o: Makefile ../../../../../../components/libraries/ringbuf/nrf_ringbuf.c ../../../../../../components/libraries/ringbuf/nrf_ringbuf.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h ../../../../../../components/libraries/atomic/nrf_atomic.h ../../../../../../components/libraries/util/sdk_common.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h /usr/include/newlib/string.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/machine/_default_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/sys/string.h ../config/sdk_config.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/sdk_os.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/util/app_util.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/softdevice/mbr/headers/nrf_mbr.h ../../../../../../components/softdevice/mbr/headers/nrf_svc.h ../../../../../../components/libraries/util/sdk_macros.h ../../../../../../components/libraries/util/nrf_assert.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/libraries/util/app_util_platform.h ../../../../../../components/libraries/util/app_error.h /usr/include/newlib/stdio.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h /usr/include/newlib/sys/types.h /usr/include/newlib/sys/_stdint.h /usr/include/newlib/sys/_pthreadtypes.h /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h ../../../../../../components/libraries/util/app_error_weak.h ../../../../../../components/libraries/util/nrf_assert.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.f.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.f) $(OUTPUT_OPTION) $<
+
+../../../../../../modules/nrfx/mdk/nrf53_erratas.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.l:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.m:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.m) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+.ln:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.o) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+.y:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.def.sym:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.def) -o $@ $<
+
+../../../../../../components/toolchain/cmsis/include/mpu_armv7.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa/gcc_startup_nrf52840.S.o: Makefile ../../../../../../modules/nrfx/mdk/gcc_startup_nrf52840.S | _build/nrf52840_xxaa/.
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: '_build/nrf52840_xxaa/gcc_startup_nrf52840'
+#  Also makes: _build/nrf52840_xxaa/gcc_startup_nrf52840.s.o.o
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has not been updated.
+#  recipe to execute (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 280):
+	$(call run,$(CC) -x assembler-with-cpp,$(ASMFLAGS),Assembling)
+
+.PHONY: default help nrf52840_xxaa all dfu
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/drivers/nrfx_common.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/_ansi.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.p.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.p) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.p:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.p) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+.txinfo.dvi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+/usr/include/newlib/machine/_types.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/hal/nrf_gpio.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+../../../main.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PRECIOUS: %.d %.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+_build/nrf52840_xxaa/nrf_log_frontend.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+_build/nrf52840_xxaa/app_error.c.o: Makefile ../../../../../../components/libraries/util/app_error.c ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/machine/_default_types.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/types.h /usr/include/newlib/sys/_stdint.h /usr/include/newlib/sys/_pthreadtypes.h /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h ../../../../../../components/libraries/util/app_error.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../components/libraries/util/app_error_weak.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.a:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+../../../../../../components/libraries/util/app_error_handler_gcc.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.yl:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/util/sdk_errors.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.l.ln:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	@$(RM) $*.c
+	 $(LEX.l) $< > $*.c
+	$(LINT.c) -i $*.c -o $@
+	 $(RM) $*.c
+
+# Not a target:
+.F.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.F) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.texi.info:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+../../../../../../components/toolchain/cmsis/include/core_cm4.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.w.c:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(CTANGLE) $< - $@
+
+# Not a target:
+.texi.dvi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+# Not a target:
+.ch:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa/nrf_atomic.c.o: Makefile ../../../../../../components/libraries/atomic/nrf_atomic.c ../../../../../../components/libraries/atomic/nrf_atomic.h ../../../../../../components/libraries/util/sdk_common.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h /usr/include/newlib/string.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/machine/_default_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/sys/string.h ../config/sdk_config.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/sdk_os.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/util/app_util.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/softdevice/mbr/headers/nrf_mbr.h ../../../../../../components/softdevice/mbr/headers/nrf_svc.h ../../../../../../components/libraries/util/sdk_macros.h ../../../../../../components/libraries/util/nrf_assert.h ../../../../../../components/libraries/atomic/nrf_atomic_internal.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa/.: | _build
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'nrf52840_xxaa'
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 256):
+	cd $(OUTPUT_DIRECTORY) && $(MK) $*
+
+# Not a target:
+.m.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.m) $(OUTPUT_OPTION) $<
+
+../../../../../../integration/nrfx/nrfx_glue.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/util/app_error_weak.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.cc:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.cc) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+_build/nrf52840_xxaa/app_util_platform.c.o: Makefile ../../../../../../components/libraries/util/app_util_platform.c ../../../../../../components/libraries/util/app_util_platform.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/nrf_assert.h ../../../../../../components/libraries/util/app_error.h /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/machine/_default_types.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/types.h /usr/include/newlib/sys/_stdint.h /usr/include/newlib/sys/_pthreadtypes.h /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../components/libraries/util/app_error_weak.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.cc.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.cc) $(OUTPUT_OPTION) $<
+
+../../../../../../components/libraries/log/nrf_log_instance.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa/system_nrf52840.c.o: Makefile ../../../../../../modules/nrfx/mdk/system_nrf52840.c ../../../../../../modules/nrfx/mdk/system_nrf52.c /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../modules/nrfx/mdk/nrf_peripherals.h ../../../../../../modules/nrfx/mdk/nrf52840_peripherals.h ../../../../../../modules/nrfx/mdk/nrf_erratas.h ../../../../../../modules/nrfx/mdk/nrf51_erratas.h ../../../../../../modules/nrfx/mdk/nrf52_erratas.h ../../../../../../modules/nrfx/mdk/nrf53_erratas.h ../../../../../../modules/nrfx/mdk/nrf91_erratas.h ../../../../../../modules/nrfx/mdk/system_nrf52.h ../../../../../../modules/nrfx/mdk/system_nrf52_approtect.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/sys/string.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/mdk/nrf_erratas.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.def:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/machine/ieeefp.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/sys/lock.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.c.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.c) $(OUTPUT_OPTION) $<
+
+# Not a target:
+%.o:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-25 15:17:59.465694818
+#  File has been updated.
+#  Successfully updated.
+
+_build/nrf52840_xxaa.hex: _build/nrf52840_xxaa.out
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: '_build/nrf52840_xxaa'
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has not been updated.
+#  recipe to execute (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 304):
+	$(info Preparing: $@)
+	$(NO_ECHO)$(OBJCOPY) -O ihex $< $@
+
+# Not a target:
+.r.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.r) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.r:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.r) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+../../../../../../components/libraries/util/app_error.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+../../../../../../components/libraries/strerror/nrf_strerror.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/sys/_types.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/sys/_stdint.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+_build/nrf52840_xxaa/nrf_balloc.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.ym.m:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(YACC.m) $< 
+	 mv -f y.tab.c $@
+
+# Not a target:
+.y.ln:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(YACC.y) $< 
+	 $(LINT.c) -C$* y.tab.c 
+	 $(RM) y.tab.c
+
+/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+_build/nrf52840_xxaa/nrf_fprintf.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+../../../../../../components/toolchain/cmsis/include/cmsis_version.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+../../../../../../components/libraries/util/app_util_platform.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa/main.c.o: Makefile ../../../main.c /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h ../../../../../../components/libraries/delay/nrf_delay.h ../../../../../../modules/nrfx/nrfx.h ../../../../../../integration/nrfx/nrfx_config.h ../config/sdk_config.h ../../../../../../modules/nrfx/drivers/nrfx_common.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../modules/nrfx/mdk/nrf_peripherals.h ../../../../../../modules/nrfx/mdk/nrf52840_peripherals.h ../../../../../../integration/nrfx/nrfx_glue.h ../../../../../../integration/nrfx/legacy/apply_old_config.h ../../../../../../modules/nrfx/soc/nrfx_irqs.h ../../../../../../modules/nrfx/soc/nrfx_irqs_nrf52840.h ../../../../../../components/libraries/util/nrf_assert.h ../../../../../../components/libraries/util/app_util.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../components/softdevice/mbr/headers/nrf_mbr.h ../../../../../../components/softdevice/mbr/headers/nrf_svc.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../components/libraries/util/app_util_platform.h ../../../../../../components/libraries/util/nrf_assert.h ../../../../../../components/libraries/util/app_error.h /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/machine/_default_types.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/types.h /usr/include/newlib/sys/_stdint.h /usr/include/newlib/sys/_pthreadtypes.h /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/util/app_error_weak.h ../../../../../../modules/nrfx/soc/nrfx_coredep.h ../../../../../../modules/nrfx/soc/nrfx_atomic.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/libraries/util/sdk_resources.h ../../../../../../modules/nrfx/drivers/nrfx_errors.h ../../../../../../components/boards/boards.h ../../../../../../modules/nrfx/hal/nrf_gpio.h ../../../../../../components/boards/pca10059.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/soc/nrfx_irqs_nrf52840.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.elc:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.l.c:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	@$(RM) $@ 
+	 $(LEX.l) $< > $@
+
+/usr/include/newlib/sys/stdio.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+../../../../../../components/libraries/log/src/nrf_log_str_formatter.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.out:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: nrf52840_xxaa
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/mdk/system_nrf52840.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/mdk/system_nrf52.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+_build/nrf52840_xxaa/nrfx_atomic.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+_build/nrf52840_xxaa/app_error_weak.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.C:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.C) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+.r.f:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(PREPROCESS.r) $(OUTPUT_OPTION) $<
+
+../../../../../../components/libraries/util/app_error.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/strerror/nrf_strerror.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.S:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.S) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+_build/nrf52840_xxaa/nrf_fprintf_format.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../integration/nrfx/legacy/apply_old_config.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.texinfo.info:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+# Not a target:
+.c:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.c) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+_build/nrf52840_xxaa.bin:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.w.tex:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(CWEAVE) $< - $@
+
+help:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 127):
+	@echo following targets are available:
+	@echo		nrf52840_xxaa
+	@echo		flash      - flashing binary
+
+_build/nrf52840_xxaa/nrf_log_frontend.c.o: Makefile ../../../../../../components/libraries/log/src/nrf_log_frontend.c ../../../../../../components/libraries/util/sdk_common.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h /usr/include/newlib/string.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/machine/_default_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/sys/string.h ../config/sdk_config.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/sdk_os.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/util/app_util.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/softdevice/mbr/headers/nrf_mbr.h ../../../../../../components/softdevice/mbr/headers/nrf_svc.h ../../../../../../components/libraries/util/sdk_macros.h ../../../../../../components/libraries/util/nrf_assert.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.c.ln:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINT.c) -C$* $<
+
+# Not a target:
+.s.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.s) -o $@ $<
+
+default: nrf52840_xxaa
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+.s:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.s) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+../../../../../../components/libraries/balloc/nrf_balloc.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/_newlib_version.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/machine/_default_types.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/util/sdk_resources.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/softdevice/mbr/headers/nrf_mbr.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/util/sdk_macros.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/soc/nrfx_coredep.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+_build/nrf52840_xxaa/nrf_assert.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+../../../../../../modules/nrfx/mdk/nrf91_erratas.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/drivers/nrfx_errors.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/softdevice/mbr/headers/nrf_svc.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.texinfo.dvi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+# Not a target:
+.el:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/sys/types.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dfu: _build/nrf52840_xxaa.dfu
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 153):
+	@echo Performing DFU with generated package
+	nrfutil dfu usb-serial -pkg $< -p $(DFU_PORT) -b 115200
+
+../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/sys/cdefs.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.lm.m:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	@$(RM) $@ 
+	 $(LEX.m) $< > $@
+
+../../../../../../modules/nrfx/mdk/nrf52840_peripherals.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/atomic/nrf_atomic_internal.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.y.c:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(YACC.y) $< 
+	 mv -f y.tab.c $@
+
+../../../../../../modules/nrfx/mdk/system_nrf52.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/stdio.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+_build/nrf52840_xxaa/nrf_ringbuf.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.web.tex:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(WEAVE) $<
+
+# Not a target:
+.texinfo:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# makefile (from 'Makefile', line 11)
+_build/nrf52840_xxaa.out: LINKER_SCRIPT := blinky_gcc_nrf52.ld
+_build/nrf52840_xxaa.out: _build/nrf52840_xxaa/gcc_startup_nrf52840.S.o _build/nrf52840_xxaa/nrf_log_frontend.c.o _build/nrf52840_xxaa/nrf_log_str_formatter.c.o _build/nrf52840_xxaa/boards.c.o _build/nrf52840_xxaa/app_error.c.o _build/nrf52840_xxaa/app_error_handler_gcc.c.o _build/nrf52840_xxaa/app_error_weak.c.o _build/nrf52840_xxaa/app_util_platform.c.o _build/nrf52840_xxaa/nrf_assert.c.o _build/nrf52840_xxaa/nrf_atomic.c.o _build/nrf52840_xxaa/nrf_balloc.c.o _build/nrf52840_xxaa/nrf_fprintf.c.o _build/nrf52840_xxaa/nrf_fprintf_format.c.o _build/nrf52840_xxaa/nrf_memobj.c.o _build/nrf52840_xxaa/nrf_ringbuf.c.o _build/nrf52840_xxaa/nrf_strerror.c.o _build/nrf52840_xxaa/nrfx_atomic.c.o _build/nrf52840_xxaa/main.c.o _build/nrf52840_xxaa/system_nrf52840.c.o
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: '_build/nrf52840_xxaa'
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/1=0%
+#  recipe to execute (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 292):
+	$(info $(call PROGRESS,Linking target: $@))
+	$(NO_ECHO)$(GENERATE_LD_INPUT_FILE)
+	$(NO_ECHO)$(CC) $(LDFLAGS) $(LD_INPUT) -Wl,-Map=$(@:.out=.map) -o $@
+	$(NO_ECHO)$(SIZE) $@
+
+# Not a target:
+../../../../esl-nsdk/components/toolchain/gcc/Makefile.common:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 11:09:53.658185656
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.h:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa/nrf_balloc.c.o: Makefile ../../../../../../components/libraries/balloc/nrf_balloc.c ../../../../../../components/libraries/util/sdk_common.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h /usr/include/newlib/string.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/machine/_default_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/sys/string.h ../config/sdk_config.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/sdk_os.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/util/app_util.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/softdevice/mbr/headers/nrf_mbr.h ../../../../../../components/softdevice/mbr/headers/nrf_svc.h ../../../../../../components/libraries/util/sdk_macros.h ../../../../../../components/libraries/util/nrf_assert.h ../../../../../../components/libraries/experimental_section_vars/nrf_section.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../components/libraries/balloc/nrf_balloc.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/libraries/util/app_util_platform.h ../../../../../../components/libraries/util/app_error.h /usr/include/newlib/stdio.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h /usr/include/newlib/sys/types.h /usr/include/newlib/sys/_stdint.h /usr/include/newlib/sys/_pthreadtypes.h /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h ../../../../../../components/libraries/util/app_error_weak.h ../../../../../../components/libraries/util/app_util.h ../../../../../../components/libraries/log/nrf_log_instance.h ../../../../../../components/libraries/log/nrf_log_types.h ../../../../../../components/libraries/log/nrf_log.h ../../../../../../components/libraries/log/src/nrf_log_internal.h ../../../../../../components/libraries/log/nrf_log_types.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa/nrf_fprintf.c.o: Makefile ../../../../../../external/fprintf/nrf_fprintf.c ../../../../../../components/libraries/util/sdk_common.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h /usr/include/newlib/string.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/machine/_default_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/sys/string.h ../config/sdk_config.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/sdk_os.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/util/app_util.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/softdevice/mbr/headers/nrf_mbr.h ../../../../../../components/softdevice/mbr/headers/nrf_svc.h ../../../../../../components/libraries/util/sdk_macros.h ../../../../../../components/libraries/util/nrf_assert.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h ../../../../../../components/libraries/util/nrf_assert.h ../../../../../../external/fprintf/nrf_fprintf_format.h ../../../../../../external/fprintf/nrf_fprintf.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# makefile (from 'Makefile', line 111)
+nrf52840_xxaa: CFLAGS += -D__HEAP_SIZE=8192 -D__STACK_SIZE=8192
+# makefile (from 'Makefile', line 113)
+nrf52840_xxaa: ASMFLAGS += -D__HEAP_SIZE=8192 -D__STACK_SIZE=8192
+nrf52840_xxaa: _build/nrf52840_xxaa.out _build/nrf52840_xxaa.hex _build/nrf52840_xxaa.bin
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=2/32=6%, Rehash=0, Collisions=0/8=0%
+#  recipe to execute (from 'Makefile', line 136):
+	 @echo DONE nrf52840_xxaa
+
+../../../../../../components/libraries/log/nrf_log_ctrl.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.tex.dvi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TEX) $<
+
+# Not a target:
+.cpp.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.cpp) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.cpp:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.cpp) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+../../../../../../components/boards/boards.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/util/nordic_common.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/sys/features.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.C.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.C) $(OUTPUT_OPTION) $<
+
+../../../../../../modules/nrfx/soc/nrfx_atomic_internal.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+_build/nrf52840_xxaa/boards.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+_build/nrf52840_xxaa/gcc_startup_nrf52840.s.o.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+../../../../../../components/libraries/memobj/nrf_memobj.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/util/app_util_platform.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.texi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+_build/nrf52840_xxaa/nrf_log_str_formatter.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.txinfo:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/log/nrf_log_backend_interface.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.tex:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa/nrfx_atomic.c.o: Makefile ../../../../../../modules/nrfx/soc/nrfx_atomic.c ../../../../../../modules/nrfx/soc/nrfx_atomic.h ../../../../../../modules/nrfx/nrfx.h ../../../../../../integration/nrfx/nrfx_config.h ../config/sdk_config.h ../../../../../../modules/nrfx/drivers/nrfx_common.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../modules/nrfx/mdk/nrf_peripherals.h ../../../../../../modules/nrfx/mdk/nrf52840_peripherals.h ../../../../../../integration/nrfx/nrfx_glue.h ../../../../../../integration/nrfx/legacy/apply_old_config.h ../../../../../../modules/nrfx/soc/nrfx_irqs.h ../../../../../../modules/nrfx/soc/nrfx_irqs_nrf52840.h ../../../../../../components/libraries/util/nrf_assert.h ../../../../../../components/libraries/util/app_util.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../components/softdevice/mbr/headers/nrf_mbr.h ../../../../../../components/softdevice/mbr/headers/nrf_svc.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../components/libraries/util/app_util_platform.h ../../../../../../components/libraries/util/nrf_assert.h ../../../../../../components/libraries/util/app_error.h /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/machine/_default_types.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/types.h /usr/include/newlib/sys/_stdint.h /usr/include/newlib/sys/_pthreadtypes.h /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/util/app_error_weak.h ../../../../../../modules/nrfx/soc/nrfx_coredep.h ../../../../../../modules/nrfx/soc/nrfx_atomic.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/libraries/util/sdk_resources.h ../../../../../../modules/nrfx/drivers/nrfx_errors.h ../../../../../../modules/nrfx/soc/nrfx_atomic_internal.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+../../../../../../modules/nrfx/mdk/gcc_startup_nrf52840.S:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+dfu_package: _build/nrf52840_xxaa.dfu
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build:
+#  Implicit rule search has not been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '../../../../esl-nsdk/components/toolchain/gcc/Makefile.common', line 254):
+	$(MK) $@
+
+# Not a target:
+../../../../../../external/fprintf/nrf_fprintf.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+_build/nrf52840_xxaa/nrf_strerror.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.txinfo.info:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+../../../../../../modules/nrfx/mdk/compiler_abstraction.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/nrfx.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa/nrf_fprintf_format.c.o: Makefile ../../../../../../external/fprintf/nrf_fprintf_format.c ../../../../../../components/libraries/util/sdk_common.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h /usr/include/newlib/string.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/machine/_default_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/sys/string.h ../config/sdk_config.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/sdk_os.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/util/app_util.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/softdevice/mbr/headers/nrf_mbr.h ../../../../../../components/softdevice/mbr/headers/nrf_svc.h ../../../../../../components/libraries/util/sdk_macros.h ../../../../../../components/libraries/util/nrf_assert.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h ../../../../../../components/libraries/util/nrf_assert.h ../../../../../../external/fprintf/nrf_fprintf.h ../../../../../../external/fprintf/nrf_fprintf_format.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/mdk/nrf_peripherals.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+_build/nrf52840_xxaa/nrf_memobj.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+../../../../../../modules/nrfx/mdk/nrf52840.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/mdk/nrf51_erratas.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/machine/stdlib.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/ringbuf/nrf_ringbuf.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/sys/config.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+_build/nrf52840_xxaa/app_error_handler_gcc.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.sh:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	cat $< >$@ 
+	 chmod a+x $@
+
+../../../../../../components/libraries/log/nrf_log_types.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa/nrf_assert.c.o: Makefile ../../../../../../components/libraries/util/nrf_assert.c ../../../../../../components/libraries/util/nrf_assert.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/app_error.h /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/machine/_default_types.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/types.h /usr/include/newlib/sys/_stdint.h /usr/include/newlib/sys/_pthreadtypes.h /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../components/libraries/util/app_error_weak.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/util/sdk_common.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/log/src/nrf_log_ctrl_internal.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+%.d:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/atomic/nrf_atomic.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/boards/boards.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+../../../../../../external/fprintf/nrf_fprintf_format.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/balloc/nrf_balloc.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.S.s:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(PREPROCESS.S) $< > $@
+
+# Not a target:
+.mod:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.mod) -o $@ -e $@ $^
+
+../../../../../../components/libraries/memobj/nrf_memobj.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+_build/nrf52840_xxaa/gcc_startup_nrf52840.S.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.mod.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.mod) -o $@ $<
+
+# Not a target:
+../../../../../../modules/nrfx/soc/nrfx_atomic.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+../../../../../../modules/nrfx/mdk/system_nrf52840.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.F.f:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(PREPROCESS.F) $(OUTPUT_OPTION) $<
+
+../../../../../../modules/nrfx/mdk/nrf52_erratas.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.w:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+../../../../../../components/libraries/log/src/nrf_log_frontend.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../external/fprintf/nrf_fprintf.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.S.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.S) -o $@ $<
+
+../config/sdk_config.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/boards/pca10059.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+_build/nrf52840_xxaa/app_error.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+/usr/include/newlib/machine/types.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+../../../../esl-nsdk/components/toolchain/gcc/Makefile.posix:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 11:09:53.658185656
+#  File has been updated.
+#  Successfully updated.
+
+/usr/include/newlib/sys/_pthreadtypes.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/log/nrf_log.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+../../../../../../components/libraries/util/nrf_assert.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+_build/nrf52840_xxaa/nrf_atomic.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+../../../../../../components/libraries/util/sdk_os.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/mdk/nrf.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+_build/nrf52840_xxaa/app_util_platform.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.F:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.F) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+_build/nrf52840_xxaa/system_nrf52840.c.d:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-21 12:04:37.485703208
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.web:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/string.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.sym:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa/app_error_weak.c.o: Makefile ../../../../../../components/libraries/util/app_error_weak.c ../../../../../../components/libraries/util/app_error.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/machine/_default_types.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/types.h /usr/include/newlib/sys/_stdint.h /usr/include/newlib/sys/_pthreadtypes.h /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../components/libraries/util/app_error_weak.h ../../../../../../components/libraries/log/nrf_log.h ../../../../../../components/libraries/util/sdk_common.h /usr/include/newlib/string.h /usr/include/newlib/sys/string.h ../config/sdk_config.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/sdk_os.h ../../../../../../components/libraries/util/app_util.h ../../../../../../components/softdevice/mbr/headers/nrf_mbr.h ../../../../../../components/softdevice/mbr/headers/nrf_svc.h ../../../../../../components/libraries/util/sdk_macros.h ../../../../../../components/libraries/util/nrf_assert.h ../../../../../../components/libraries/experimental_section_vars/nrf_section.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../components/libraries/log/src/nrf_log_internal.h ../../../../../../components/libraries/util/app_util.h ../../../../../../components/libraries/log/nrf_log_instance.h ../../../../../../components/libraries/log/nrf_log_types.h ../../../../../../components/libraries/log/nrf_log_types.h ../../../../../../components/libraries/log/nrf_log_ctrl.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/libraries/log/src/nrf_log_ctrl_internal.h ../../../../../../components/libraries/log/nrf_log_backend_interface.h ../../../../../../components/libraries/util/app_util_platform.h ../../../../../../components/libraries/strerror/nrf_strerror.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../external/fprintf/nrf_fprintf_format.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.f:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.f) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa/boards.c.o: Makefile ../../../../../../components/boards/boards.c ../../../../../../components/boards/boards.h ../../../../../../modules/nrfx/hal/nrf_gpio.h ../../../../../../modules/nrfx/nrfx.h ../../../../../../integration/nrfx/nrfx_config.h ../config/sdk_config.h ../../../../../../modules/nrfx/drivers/nrfx_common.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../modules/nrfx/mdk/nrf_peripherals.h ../../../../../../modules/nrfx/mdk/nrf52840_peripherals.h ../../../../../../integration/nrfx/nrfx_glue.h ../../../../../../integration/nrfx/legacy/apply_old_config.h ../../../../../../modules/nrfx/soc/nrfx_irqs.h ../../../../../../modules/nrfx/soc/nrfx_irqs_nrf52840.h ../../../../../../components/libraries/util/nrf_assert.h ../../../../../../components/libraries/util/app_util.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../components/softdevice/mbr/headers/nrf_mbr.h ../../../../../../components/softdevice/mbr/headers/nrf_svc.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../components/libraries/util/app_util_platform.h ../../../../../../components/libraries/util/nrf_assert.h ../../../../../../components/libraries/util/app_error.h /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/machine/_default_types.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/types.h /usr/include/newlib/sys/_stdint.h /usr/include/newlib/sys/_pthreadtypes.h /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/util/app_error_weak.h ../../../../../../modules/nrfx/soc/nrfx_coredep.h ../../../../../../modules/nrfx/soc/nrfx_atomic.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/libraries/util/sdk_resources.h ../../../../../../modules/nrfx/drivers/nrfx_errors.h ../../../../../../components/boards/pca10059.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/usr/include/newlib/stdlib.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/experimental_section_vars/nrf_section.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.info:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/soc/nrfx_irqs.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+../../../../../../components/libraries/atomic/nrf_atomic.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../modules/nrfx/soc/nrfx_atomic.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_build/nrf52840_xxaa/nrf_log_str_formatter.c.o: Makefile ../../../../../../components/libraries/log/src/nrf_log_str_formatter.c ../../../../../../components/libraries/util/sdk_common.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h /usr/include/newlib/string.h /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h /usr/include/newlib/machine/_default_types.h /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h /usr/include/newlib/sys/string.h ../config/sdk_config.h ../../../../../../components/libraries/util/nordic_common.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/libraries/util/sdk_os.h ../../../../../../components/libraries/util/sdk_errors.h ../../../../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h ../../../../../../components/libraries/util/app_util.h ../../../../../../modules/nrfx/mdk/nrf.h ../../../../../../modules/nrfx/mdk/nrf52840.h ../../../../../../components/toolchain/cmsis/include/core_cm4.h ../../../../../../components/toolchain/cmsis/include/cmsis_version.h ../../../../../../components/toolchain/cmsis/include/cmsis_compiler.h ../../../../../../components/toolchain/cmsis/include/cmsis_gcc.h ../../../../../../components/toolchain/cmsis/include/mpu_armv7.h ../../../../../../modules/nrfx/mdk/system_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h ../../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h ../../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h ../../../../../../modules/nrfx/mdk/compiler_abstraction.h ../../../../../../components/softdevice/mbr/headers/nrf_mbr.h ../../../../../../components/softdevice/mbr/headers/nrf_svc.h ../../../../../../components/libraries/util/sdk_macros.h ../../../../../../components/libraries/util/nrf_assert.h | _build/nrf52840_xxaa/.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+../../../../../../components/libraries/util/app_util.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=243/1024=24%, Rehash=0, Collisions=321/2388=13%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 2 (1) / strings = 436 / storage = 14556 B / avg = 33 B
+# current buf: size = 8162 B / used = 6402 B / count = 181 / avg = 35 B
+# other used: total = 8154 B / count = 255 / avg = 31 B
+# other free: total = 8 B / max = 8 B / min = 8 B / avg = 8 B
+
+# strcache performance: lookups = 3276 / hit rate = 86%
+# hash-table stats:
+# Load=436/8192=5%, Rehash=0, Collisions=121/3276=4%
+# Finished Make data base on Wed Oct 25 15:20:00 2023
+
