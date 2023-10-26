@@ -71,13 +71,14 @@ int main(void)
         {
             for (int j = 0; j < blinkCounts[i]; j++)
             {
-                bsp_board_led_on(i);  
+                bsp_board_led_invert(i);
                 nrf_delay_ms(500);   
-                bsp_board_led_off(i); 
+                bsp_board_led_invert(i);
                 nrf_delay_ms(500);   
             }
             nrf_delay_ms(200);  
         }
+
     }
 }
 
