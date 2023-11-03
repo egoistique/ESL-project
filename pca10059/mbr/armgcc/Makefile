@@ -145,8 +145,9 @@ $(DFU_PACKAGE): $(OUTPUT_DIRECTORY)/nrf52840_xxaa.hex
 	   --hw-version 52 \
 	   --application-version 1 \
 	   --sd-req 0x0,0x102 \
+	   --sd-id 0x102 \
 	   --application $< \
-	   $@
+	   --softdevice $(SDK_ROOT)/components/softdevice/s113/hex/s113_nrf52_7.2.0_softdevice.hex $@
 
 dfu: $(DFU_PACKAGE)
 	@echo Performing DFU with generated package

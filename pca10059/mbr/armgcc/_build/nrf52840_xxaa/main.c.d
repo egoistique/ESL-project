@@ -1,7 +1,8 @@
 _build/nrf52840_xxaa/main.c.o: ../../../main.c \
  /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h \
  /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h \
- ../../../../esl-nsdk/components/libraries/delay/nrf_delay.h \
+ ../../../../esl-nsdk/components/boards/boards.h \
+ ../../../../esl-nsdk/modules/nrfx/hal/nrf_gpio.h \
  ../../../../esl-nsdk/modules/nrfx/nrfx.h \
  ../../../../esl-nsdk/integration/nrfx/nrfx_config.h \
  ../config/sdk_config.h \
@@ -55,15 +56,16 @@ _build/nrf52840_xxaa/main.c.o: ../../../main.c \
  ../../../../esl-nsdk/components/libraries/util/sdk_errors.h \
  ../../../../esl-nsdk/components/libraries/util/sdk_resources.h \
  ../../../../esl-nsdk/modules/nrfx/drivers/nrfx_errors.h \
- ../../../../esl-nsdk/components/boards/boards.h \
- ../../../../esl-nsdk/modules/nrfx/hal/nrf_gpio.h \
- ../../../../esl-nsdk/components/boards/pca10059.h
+ ../../../../esl-nsdk/components/boards/pca10059.h \
+ ../../../../esl-nsdk/components/libraries/delay/nrf_delay.h
 
 /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h:
 
 /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h:
 
-../../../../esl-nsdk/components/libraries/delay/nrf_delay.h:
+../../../../esl-nsdk/components/boards/boards.h:
+
+../../../../esl-nsdk/modules/nrfx/hal/nrf_gpio.h:
 
 ../../../../esl-nsdk/modules/nrfx/nrfx.h:
 
@@ -187,8 +189,6 @@ _build/nrf52840_xxaa/main.c.o: ../../../main.c \
 
 ../../../../esl-nsdk/modules/nrfx/drivers/nrfx_errors.h:
 
-../../../../esl-nsdk/components/boards/boards.h:
-
-../../../../esl-nsdk/modules/nrfx/hal/nrf_gpio.h:
-
 ../../../../esl-nsdk/components/boards/pca10059.h:
+
+../../../../esl-nsdk/components/libraries/delay/nrf_delay.h:
