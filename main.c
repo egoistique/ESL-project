@@ -44,6 +44,7 @@ int main(void)
 }
 
 
+
 void blink(int led){
     bsp_board_led_invert(led);
     nrf_delay_ms(DELAY);   
