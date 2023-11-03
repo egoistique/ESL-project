@@ -18,30 +18,50 @@
 void blink(int);
 void configure_led(int);
 void configure_button(int);
-
+void invert_led_state(int);
+bool button_pressed(int pin_n);
 
 int main(void)
 {
     bsp_board_init(BSP_INIT_LEDS);
 
+    configure_led(LED1_PIN);
+    configure_led(LED2_PIN);
+    configure_led(LED3_PIN);
+    configure_led(LED4_PIN);
+    configure_button(BUTTON_PIN);
+
     uint8_t blinkCounts[4] = {6, 5, 8, 1};
+    int current_led = 0;
+    bool button_was_pressed = false; 
 
     while (true)
     {
-        for (int i = 0; i < LEDS_NUMBER; i++)
-        {
-            for (int j = 0; j < blinkCounts[i]; j++)
-            {
-                bsp_board_led_invert(i);
-                nrf_delay_ms(500);   
-                bsp_board_led_invert(i);
-                nrf_delay_ms(500);   
+        if (button_pressed(BUTTON_PIN)) {
+            if (!button_was_pressed) {
+                button_was_pressed = true;
+                // Если кнопка была нажата, переключаемся на следующий светодиод
+                current_led = (current_led + 1) % LED_NUMBER;
             }
-            nrf_delay_ms(1000);  
+
+            for (int j = 0; j < blinkCounts[current_led]; j++)
+            {
+                blink(current_led);
+                if (!button_pressed(BUTTON_PIN)) {
+                    // Если кнопка отпущена во время мигания, прерываем цикл мигания
+                    button_was_pressed = false;
+                    break;
+                }
+            }
+        } else {
+            // Кнопка не нажата, сбрасываем флаг и ожидаем нажатия
+            button_was_pressed = false;
         }
 
+        nrf_delay_ms(1000);  
     }
 }
+
 
 
 
@@ -58,5 +78,16 @@ void configure_led(int pin){
 }
 
 void configure_button(int pin){
-    nrf_gpio_cfg_input(pin);
+    nrf_gpio_cfg_input(pin, NRF_GPIO_PIN_PULLUP);
+}
+
+void invert_led_state(int pin){
+    int current_state = nrf_gpio_pin_out_read(pin);
+    nrf_gpio_pin_write(pin, current_state ? 0 : 1);
+}
+
+
+bool button_pressed(int pin_n)
+{
+    return nrf_gpio_pin_read(pin_n) == 0;
 }
