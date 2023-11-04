@@ -14,12 +14,10 @@
 #define LED_NUMBER 4
 #define DELAY 500
 
-
 void blink(int);
 void configure_led(int);
 void configure_button(int);
-void invert_led_state(int);
-bool button_pressed(int pin_n);
+bool button_pressed(int);
 
 int main(void)
 {
@@ -31,40 +29,32 @@ int main(void)
     configure_led(LED4_PIN);
     configure_button(BUTTON_PIN);
 
-    uint8_t blinkCounts[4] = {6, 5, 8, 1};
+    uint8_t blinkCounts[LED_NUMBER] = {6, 5, 8, 1};
     int current_led = 0;
+    int current_blink = 0;
     bool button_was_pressed = false; 
-
 
     while (true)
     {
         if (button_pressed(BUTTON_PIN)) {
             if (!button_was_pressed) {
                 button_was_pressed = true;
-                // Если кнопка была нажата, переключаемся на следующий светодиод
-                current_led = (current_led + 1) % LED_NUMBER;
             }
 
-            for (int j = 0; j < blinkCounts[current_led]; j++)
-            {
+            if (current_blink < blinkCounts[current_led]) {
                 blink(current_led);
-                if (!button_pressed(BUTTON_PIN)) {
-                    // Если кнопка отпущена во время мигания, прерываем цикл мигания
-                    button_was_pressed = false;
-                    break;
-                }
+                current_blink++;
+            } else {
+                current_blink = 0;
+                current_led = (current_led + 1) % LED_NUMBER;
             }
         } else {
-            // Кнопка не нажата, сбрасываем флаг и ожидаем нажатия
             button_was_pressed = false;
         }
 
-        nrf_delay_ms(1000);  
+        nrf_delay_ms(DELAY);  
     }
 }
-
-
-
 
 void blink(int led){
     bsp_board_led_invert(led);
@@ -82,13 +72,7 @@ void configure_button(int pin){
     nrf_gpio_cfg_input(pin, NRF_GPIO_PIN_PULLUP);
 }
 
-void invert_led_state(int pin){
-    int current_state = nrf_gpio_pin_out_read(pin);
-    nrf_gpio_pin_write(pin, current_state ? 0 : 1);
-}
-
-
-bool button_pressed(int pin_n)
+bool button_pressed(int pin)
 {
-    return nrf_gpio_pin_read(pin_n) == 0;
+    return nrf_gpio_pin_read(pin) == 0;
 }
