@@ -9,6 +9,8 @@
         "nrfx_systick.h": "c",
         "nrfx_pwm.h": "c",
         "app_timer.h": "c",
-        "nrfx_gpiote.h": "c"
+        "nrfx_gpiote.h": "c",
+        "leds.h": "c",
+        "my_leds.h": "c"
     }
 }
