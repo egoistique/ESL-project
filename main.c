@@ -7,11 +7,7 @@
 #include "nrfx_gpiote.h"
 #include "app_timer.h"
 #include "my_leds.h"
-
-#define BUTTON_PIN NRF_GPIO_PIN_MAP(1, 6)
-
-#define LED_NUMBER 4
-#define DELAY 500
+#include "my_button.h"
 
 #define BLINK_FREQ      100 
 #define BLINK_PERIOD_US (1000000/BLINK_FREQ) 
@@ -23,20 +19,6 @@ static const int32_t leds_list[] = CUSTOM_LEDS_LIST;
 
 
 static volatile bool blink_enable = true;
-
-void configure_button(int pin){
-    nrf_gpio_cfg_input(pin, NRF_GPIO_PIN_PULLUP);
-}
-
-bool button_pressed(int pin)
-{
-    return nrf_gpio_pin_read(pin) == 0;
-}
-
-void config_pin_as_button(int32_t pin)
-{
-    nrf_gpio_cfg_input(pin, NRF_GPIO_PIN_PULLUP);
-}
 
 void wait_microseconds(int32_t us) {
     nrf_delay_us(us);
@@ -90,7 +72,7 @@ int main(void)
     config_pins_as_leds(sizeof(leds_list)/sizeof(*leds_list), leds_list);
     all_leds_off(sizeof(leds_list)/sizeof(*leds_list), leds_list);
 
-    config_pin_as_button(BUTTON_PIN);
+    configure_button(BUTTON_PIN);
 
     nrfx_systick_init();
 
