@@ -141,10 +141,7 @@ int main(void)
 
     while(true) {
         if (button_pressed(BUTTON_PIN)) {
-                    for (int i = 0; i < sizeof(device_id)/sizeof(*device_id); i++)
-        {
-            smooth_blink_any_times(leds_list[i], device_id[i], PERIOD, &blink_enable);
-        }
+            smooth_blink_any_times(leds_list[1], device_id[1], PERIOD, &blink_enable);
         } 
     }
 }
