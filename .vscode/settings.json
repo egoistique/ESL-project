@@ -7,6 +7,8 @@
         "nrf_pwm.h": "c",
         "nrf_systick.h": "c",
         "nrfx_systick.h": "c",
-        "nrfx_pwm.h": "c"
+        "nrfx_pwm.h": "c",
+        "app_timer.h": "c",
+        "nrfx_gpiote.h": "c"
     }
 }
