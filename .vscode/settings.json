@@ -3,6 +3,10 @@
     "files.associations": {
         "boards.h": "c",
         "nrf_delay.h": "c",
-        "nrf_gpio.h": "c"
+        "nrf_gpio.h": "c",
+        "nrf_pwm.h": "c",
+        "nrf_systick.h": "c",
+        "nrfx_systick.h": "c",
+        "nrfx_pwm.h": "c"
     }
 }

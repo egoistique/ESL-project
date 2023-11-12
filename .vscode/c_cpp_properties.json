@@ -4,7 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/home/user/esl-nsdk/**"
+                "/home/user/esl-nsdk/**",
+                //"/home/user/esl-nsdk/modules/nrfx/drivers/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
