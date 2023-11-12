@@ -14,15 +14,27 @@
 
 #define PERIOD 1000
 
+
+#define BLINK_TIMER_INTERVAL APP_TIMER_TICKS(20) // Интервал таймера для управления дребезгом
+
 static const unsigned int device_id[] = {2, 5, 8, 1};
 static const int32_t leds_list[] = CUSTOM_LEDS_LIST;
-
-
 static volatile bool blink_enable = true;
+static app_timer_id_t blink_timer_id;
+
+static volatile bool button_state = false;
+static volatile uint32_t button_press_time = 0;
+static volatile bool double_click_flag = false;
+
+// Прототипы функций
+static void blink_timer_handler(void * p_context);
+static void button_handler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action);
 
 void wait_microseconds(int32_t us) {
     nrf_delay_us(us);
 }
+
+
 
 void smooth_blink(int32_t led, int32_t duration_ms, volatile bool * enable)
 {
@@ -67,6 +79,52 @@ void smooth_blink_any_times(int32_t led , int32_t num, int32_t half_period_ms, v
     }
 }
 
+static void blink_timer_handler(void * p_context) {
+    // Обработчик таймера для управления дребезгом
+    nrfx_gpiote_in_event_disable(BUTTON_PIN);
+    if (nrfx_gpiote_in_is_set(BUTTON_PIN)) {
+        button_handler(BUTTON_PIN, NRF_GPIOTE_POLARITY_HITOLO);
+    } else {
+        button_handler(BUTTON_PIN, NRF_GPIOTE_POLARITY_LOTOHI);
+    }
+    nrfx_gpiote_in_event_enable(BUTTON_PIN, true);
+}
+
+static void button_handler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action) {
+    static int32_t prev_button_press_time = 0;
+
+    if (action == NRF_GPIOTE_POLARITY_LOTOHI) {
+        // Кнопка нажата
+        int32_t now = app_timer_cnt_get();
+        
+        if (now - prev_button_press_time > APP_TIMER_TICKS(500)) {
+            // Если прошло более 500 миллисекунд с предыдущего нажатия, считаем, что это новое нажатие
+            double_click_flag = false;
+        }
+
+        if (!double_click_flag) {
+            // Если флаг двойного нажатия не установлен, обрабатываем нажатие
+            button_state = true;
+            button_press_time = now;
+        } else {
+            // Если флаг двойного нажатия установлен, сбрасываем его
+            double_click_flag = false;
+        }
+    } else {
+        // Кнопка отпущена
+        uint32_t now = app_timer_cnt_get();
+        if (now - button_press_time > APP_TIMER_TICKS(500)) {
+            // Если прошло более 500 миллисекунд с предыдущего нажатия, устанавливаем флаг двойного нажатия
+            double_click_flag = true;
+        }
+
+        // Сбрасываем состояние кнопки
+        button_state = false;
+        prev_button_press_time = now;
+    }
+}
+
+
 int main(void)
 {
     config_pins_as_leds(sizeof(leds_list)/sizeof(*leds_list), leds_list);
@@ -76,10 +134,17 @@ int main(void)
 
     nrfx_systick_init();
 
+    // Инициализация таймера для управления дребезгом
+    app_timer_init();
+    app_timer_create(&blink_timer_id, APP_TIMER_MODE_REPEATED, blink_timer_handler);
+    app_timer_start(blink_timer_id, BLINK_TIMER_INTERVAL, NULL);
+
     while(true) {
-        for (int i = 0; i < sizeof(device_id)/sizeof(*device_id); i++)
+        if (button_pressed(BUTTON_PIN)) {
+                    for (int i = 0; i < sizeof(device_id)/sizeof(*device_id); i++)
         {
             smooth_blink_any_times(leds_list[i], device_id[i], PERIOD, &blink_enable);
         }
+        } 
     }
 }
