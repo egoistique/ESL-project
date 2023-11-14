@@ -9,15 +9,11 @@
 #include "my_leds.h"
 #include "my_button.h"
 
-#define BLINK_FREQ 100 
-#define BLINK_PERIOD_US (1000000/BLINK_FREQ) 
-
 #define PERIOD 1000
-#define DEBOUNCE_TIME_MS 10
 #define DOUBLE_CLICK_TIME_MS 5
 
 static const unsigned int device_id[] = {6, 5, 8, 1};
-static const int32_t leds_list[] = CUSTOM_LEDS_LIST;
+static const int32_t leds[] = LEDS;
 static volatile bool blink_enable = true;
 static volatile bool button_clicked = false;
 static app_timer_id_t double_click_timer;
@@ -28,21 +24,21 @@ void wait_microseconds(int32_t us) {
 
 void smooth_blink(int32_t led, int32_t duration_ms, volatile bool * enable)
 {
-    int32_t num_shots = (duration_ms * 1000) / (2 * BLINK_PERIOD_US); 
-    int32_t duty_cycle_step = BLINK_PERIOD_US / num_shots; 
+    int32_t num_steps = (duration_ms * 1000) / (2 * PERIOD); 
+    int32_t step = PERIOD / num_steps; 
     int32_t current_duty_cycle = 0; 
 
-    bool forward_direction = true;
+    bool direction = true;
 
     nrfx_systick_state_t state;
 
     while (true) {
         if (*enable) {
-            if (forward_direction && (current_duty_cycle >= BLINK_PERIOD_US)) {
-                forward_direction = false;
+            if (direction && (current_duty_cycle >= PERIOD)) {
+                direction = false;
             }
 
-            current_duty_cycle += forward_direction ? duty_cycle_step : -duty_cycle_step;
+            current_duty_cycle += direction ? step : -step;
 
             if (current_duty_cycle <= 0) {
                 break;
@@ -55,22 +51,21 @@ void smooth_blink(int32_t led, int32_t duration_ms, volatile bool * enable)
             wait_microseconds(current_duty_cycle);
             led_off(led);
             nrfx_systick_get(&state);
-            wait_microseconds(BLINK_PERIOD_US - current_duty_cycle);
+            wait_microseconds(PERIOD - current_duty_cycle);
         }
     }
 }
 
-void smooth_blink_any_times(int32_t led , int32_t num, int32_t half_period_ms, volatile bool *enable)
+void smooth_blink_any_times(int32_t led , int32_t num, int32_t period_ms, volatile bool *enable)
 {
     for(unsigned int i = 0; i < num; i++){
-        smooth_blink(led, half_period_ms, enable);
-        nrf_delay_ms(half_period_ms);
+        smooth_blink(led, period_ms, enable);
+        nrf_delay_ms(period_ms);
     }
 }
 
 void double_click_timeout_handler(void* p_context)
 {
-    // Reset the button click state
     button_clicked = false;
 }
 
@@ -78,37 +73,30 @@ void button_handler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
 {
     if (action == NRF_GPIOTE_POLARITY_HITOLO)
     {
-        // Button pressed
         if (!button_clicked)
         {
-            // First click
             button_clicked = true;
-
-            // Start a timer to detect a second click
             ret_code_t err_code = app_timer_start(double_click_timer, APP_TIMER_TICKS(DOUBLE_CLICK_TIME_MS), NULL);
             APP_ERROR_CHECK(err_code);
         }
         else
         {
-            // Second click - double click detected
-            blink_enable = !blink_enable; // Toggle the blink enable state
-            app_timer_stop(double_click_timer); // Stop the timer
-            button_clicked = false; // Reset the button click state
+            blink_enable = !blink_enable; 
+            app_timer_stop(double_click_timer); 
+            button_clicked = false; 
         }
     }
 }
 
 int main(void)
 {
-    config_pins_as_leds(sizeof(leds_list)/sizeof(*leds_list), leds_list);
-    all_leds_off(sizeof(leds_list)/sizeof(*leds_list), leds_list);
+    configure_leds(sizeof(leds)/sizeof(*leds), leds);
+    all_leds_off(sizeof(leds)/sizeof(*leds), leds);
     configure_button(BUTTON_PIN);
 
     nrfx_systick_init();
-
     nrfx_gpiote_init();
 
-    // Initialize the double-click timer
     ret_code_t err_code = app_timer_create(&double_click_timer, APP_TIMER_MODE_SINGLE_SHOT, double_click_timeout_handler);
     APP_ERROR_CHECK(err_code);
 
@@ -119,7 +107,7 @@ int main(void)
     while(true) {
         for (int i = 0; i < sizeof(device_id)/sizeof(*device_id); i++)
         {
-            smooth_blink_any_times(leds_list[i], device_id[i], PERIOD, &blink_enable);
+            smooth_blink_any_times(leds[i], device_id[i], PERIOD, &blink_enable);
         }
     }
 }
