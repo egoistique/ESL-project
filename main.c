@@ -14,10 +14,13 @@
 
 #define PERIOD 1000
 #define DEBOUNCE_TIME_MS 10
+#define DOUBLE_CLICK_TIME_MS 500 // Adjust this value as needed
 
 static const unsigned int device_id[] = {6, 5, 8, 1};
 static const int32_t leds_list[] = CUSTOM_LEDS_LIST;
 static volatile bool blink_enable = true;
+static volatile bool button_clicked = false;
+static app_timer_id_t double_click_timer;
 
 void wait_microseconds(int32_t us) {
     nrf_delay_us(us);
@@ -55,7 +58,6 @@ void smooth_blink(int32_t led, int32_t duration_ms, volatile bool * enable)
             wait_microseconds(BLINK_PERIOD_US - current_duty_cycle);
         }
     }
-
 }
 
 void smooth_blink_any_times(int32_t led , int32_t num, int32_t half_period_ms, volatile bool *enable)
@@ -66,12 +68,33 @@ void smooth_blink_any_times(int32_t led , int32_t num, int32_t half_period_ms, v
     }
 }
 
+void double_click_timeout_handler(void* p_context)
+{
+    // Reset the button click state
+    button_clicked = false;
+}
+
 void button_handler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
 {
     if (action == NRF_GPIOTE_POLARITY_HITOLO)
     {
         // Button pressed
-        blink_enable = !blink_enable; // Toggle the blink enable state
+        if (!button_clicked)
+        {
+            // First click
+            button_clicked = true;
+
+            // Start a timer to detect a second click
+            ret_code_t err_code = app_timer_start(double_click_timer, APP_TIMER_TICKS(DOUBLE_CLICK_TIME_MS), NULL);
+            APP_ERROR_CHECK(err_code);
+        }
+        else
+        {
+            // Second click - double click detected
+            blink_enable = !blink_enable; // Toggle the blink enable state
+            app_timer_stop(double_click_timer); // Stop the timer
+            button_clicked = false; // Reset the button click state
+        }
     }
 }
 
@@ -84,7 +107,11 @@ int main(void)
     nrfx_systick_init();
 
     nrfx_gpiote_init();
-    
+
+    // Initialize the double-click timer
+    ret_code_t err_code = app_timer_create(&double_click_timer, APP_TIMER_MODE_SINGLE_SHOT, double_click_timeout_handler);
+    APP_ERROR_CHECK(err_code);
+
     nrfx_gpiote_in_config_t button_config = NRFX_GPIOTE_CONFIG_IN_SENSE_HITOLO(true);
     nrfx_gpiote_in_init(BUTTON_PIN, &button_config, button_handler);
     nrfx_gpiote_in_event_enable(BUTTON_PIN, true);
