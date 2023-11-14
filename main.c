@@ -14,7 +14,7 @@
 
 #define PERIOD 1000
 #define DEBOUNCE_TIME_MS 10
-#define DOUBLE_CLICK_TIME_MS 500 
+#define DOUBLE_CLICK_TIME_MS 5
 
 static const unsigned int device_id[] = {6, 5, 8, 1};
 static const int32_t leds_list[] = CUSTOM_LEDS_LIST;
