@@ -8,8 +8,8 @@
 
 #define DELAY 500
 
-void led_on(int32_t pin);
-void led_off(int32_t pin);
+void led_clear(int32_t pin);
+void led_set(int32_t pin);
 
 void all_leds_off(unsigned int num, const int32_t leds[num]);
 void configure_led(int pin);

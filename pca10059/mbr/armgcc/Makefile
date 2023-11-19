@@ -33,6 +33,7 @@ SRC_FILES += \
   $(PROJ_DIR)/main.c \
   $(PROJ_DIR)/src/my_leds.c \
   $(PROJ_DIR)/src/my_button.c \
+  $(PROJ_DIR)/src/my_blink.c \
   $(SDK_ROOT)/modules/nrfx/mdk/system_nrf52840.c \
   $(SDK_ROOT)/modules/nrfx/drivers/src/nrfx_gpiote.c \
   $(SDK_ROOT)/modules/nrfx/drivers/src/nrfx_systick.c \

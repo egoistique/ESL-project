@@ -8,61 +8,17 @@
 #include "app_timer.h"
 #include "my_leds.h"
 #include "my_button.h"
+#include "my_blink.h"
 
-#define PERIOD 1000
-#define DOUBLE_CLICK_TIME_MS 5
+#define DEBOUNCE_TIME_MS 10
+#define DOUBLE_CLICK_TIME_MS 500
 
-static const unsigned int device_id[] = {6, 5, 8, 1};
+static const unsigned int device_id[] = {1, 5, 8, 1};
 static const int32_t leds[] = LEDS;
 static volatile bool blink_enable = true;
 static volatile bool button_clicked = false;
 static app_timer_id_t double_click_timer;
 
-void wait_microseconds(int32_t us) {
-    nrf_delay_us(us);
-}
-
-void smooth_blink(int32_t led, int32_t duration_ms, volatile bool * enable)
-{
-    int32_t num_steps = (duration_ms * 1000) / (2 * PERIOD); 
-    int32_t step = PERIOD / num_steps; 
-    int32_t current_duty_cycle = 0; 
-
-    bool direction = true;
-
-    nrfx_systick_state_t state;
-
-    while (true) {
-        if (*enable) {
-            if (direction && (current_duty_cycle >= PERIOD)) {
-                direction = false;
-            }
-
-            current_duty_cycle += direction ? step : -step;
-
-            if (current_duty_cycle <= 0) {
-                break;
-            }
-        }
-
-        if (current_duty_cycle > 0) {
-            led_on(led);
-            nrfx_systick_get(&state);
-            wait_microseconds(current_duty_cycle);
-            led_off(led);
-            nrfx_systick_get(&state);
-            wait_microseconds(PERIOD - current_duty_cycle);
-        }
-    }
-}
-
-void smooth_blink_any_times(int32_t led , int32_t num, int32_t period_ms, volatile bool *enable)
-{
-    for(unsigned int i = 0; i < num; i++){
-        smooth_blink(led, period_ms, enable);
-        nrf_delay_ms(period_ms);
-    }
-}
 
 void double_click_timeout_handler(void* p_context)
 {
@@ -91,7 +47,7 @@ void button_handler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
 int main(void)
 {
     configure_leds(sizeof(leds)/sizeof(*leds), leds);
-    all_leds_off(sizeof(leds)/sizeof(*leds), leds);
+   
     configure_button(BUTTON_PIN);
 
     nrfx_systick_init();

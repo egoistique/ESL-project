@@ -1,11 +1,11 @@
 #include "my_leds.h"
 
-void led_on(int32_t pin)
+void led_clear(int32_t pin)
 {
     nrf_gpio_pin_clear(pin);
 }
 
-void led_off(int32_t pin)
+void led_set(int32_t pin)
 {
     nrf_gpio_pin_set(pin);
 }
@@ -13,7 +13,7 @@ void led_off(int32_t pin)
 void all_leds_off(unsigned int num, const int32_t leds[num])
 {
     for(unsigned int i = 0; i < num; i++) {
-        led_off(leds[i]);
+        led_set(leds[i]);
     }
 }
 
