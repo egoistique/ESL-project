@@ -27,7 +27,7 @@ void double_click_timeout_handler(void* p_context) {
 
 void debounce_timer_handler(void* p_context) {
     click_number++;
-    if (click_number >= 1)
+    if (click_number == 2)
     {
         blink_enable = !blink_enable; 
         click_number = 0;
