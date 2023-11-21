@@ -9,9 +9,10 @@
 #include "my_leds.h"
 #include "my_button.h"
 #include "my_blink.h"
+#include "nrfx_pwm.h"
 
 #define DEBOUNCE_TIME_MS 10
-#define DOUBLE_CLICK_TIME_MS 2000
+#define DOUBLE_CLICK_TIME_MS 1000
 
 static const unsigned int device_id[] = {1, 5, 8, 1};
 static const int32_t leds[] = LEDS;
@@ -27,6 +28,7 @@ void double_click_timeout_handler(void* p_context) {
 
 void debounce_timer_handler(void* p_context) {
     click_number++;
+    
     if (click_number == 2)
     {
         blink_enable = !blink_enable; 
@@ -53,7 +55,7 @@ int main(void) {
 
     nrfx_systick_init();
     nrfx_gpiote_init();
-
+    app_timer_init();
         
     ret_code_t err_code = app_timer_create(&debouncing_timer, APP_TIMER_MODE_SINGLE_SHOT, debounce_timer_handler);
     APP_ERROR_CHECK(err_code);
