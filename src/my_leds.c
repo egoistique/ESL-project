@@ -1,4 +1,6 @@
 #include "my_leds.h"
+#include "boards.h"
+#include "nrf_delay.h"
 
 void led_clear(int32_t pin)
 {
@@ -23,13 +25,13 @@ void configure_led(int pin)
     nrf_gpio_pin_write(pin, 1);
 }
 
-// void blink(int led)
-// {
-//     bsp_board_led_invert(led);
-//     nrf_delay_ms(DELAY);   
-//     bsp_board_led_invert(led);
-//     nrf_delay_ms(DELAY);  
-// }
+void blink(int led)
+{
+    bsp_board_led_invert(led);
+    nrf_delay_ms(DELAY);   
+    bsp_board_led_invert(led);
+    nrf_delay_ms(DELAY);  
+}
 
 
 void configure_leds(int num, const int32_t pins[num]) 

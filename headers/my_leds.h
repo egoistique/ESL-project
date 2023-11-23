@@ -13,5 +13,5 @@ void led_set(int32_t pin);
 
 void all_leds_off(unsigned int num, const int32_t leds[num]);
 void configure_led(int pin);
-//void blink(int led);
+void blink(int led);
 void configure_leds(int num, const int32_t pins[num]) ;

@@ -11,6 +11,10 @@
         "app_timer.h": "c",
         "nrfx_gpiote.h": "c",
         "leds.h": "c",
-        "my_leds.h": "c"
+        "my_leds.h": "c",
+        "stdbool.h": "c",
+        "my_blink.h": "c",
+        "nrf_drv_clock.h": "c",
+        "nrfx_glue.h": "c"
     }
 }
