@@ -17,6 +17,7 @@
 static const unsigned int device_id[] = {6, 5, 8, 1};
 static const int32_t leds[] = LEDS;
 
+
 void pwm_init(void) {
     nrfx_pwm_config_t pwm_config = NRFX_PWM_DEFAULT_CONFIG;
     nrfx_pwm_t pwm_instance = NRFX_PWM_INSTANCE(0);
