@@ -12,6 +12,7 @@ void double_click_handler(void *context)
     click_number = 0;
 }
 
+
 void debounce_handler(void *context)
 {
     if(!nrfx_gpiote_in_is_set(BUTTON_PIN)) {
