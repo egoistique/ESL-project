@@ -1,15 +1,16 @@
 #include <stdint.h>
 
+#include <stdint.h>
+
 #define MAX_BRIGHTNESS 100
 #define MAX_SATURATION 100
 
 typedef uint16_t hue_t;
 
 struct hsv {
-    hue_t hue;       
-    uint8_t saturation; 
-    uint8_t brightness;
-
+    hue_t hue;          // degree
+    uint8_t saturation; // percent
+    uint8_t brightness; // percent
 };
 
 union rgb {
@@ -21,8 +22,7 @@ union rgb {
     };
 };
 
-union rgb hue_to_rgb(hue_t hue);
-void set_brightness(uint8_t brightness, union rgb *rgb);
-void set_saturation(uint8_t saturation, union rgb *rgb);
+void hsv_to_rgb(struct hsv color, union rgb *rgb_color);
+
 
 

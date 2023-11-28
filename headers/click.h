@@ -13,6 +13,7 @@ typedef enum {
     HUE_MODE,
     SATURATION_MODE,
     VALUE_MODE,
+    MODE_NUMBER,
 } hsv_control_state_t;
 
 extern volatile bool blink_enable;

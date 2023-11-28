@@ -9,3 +9,12 @@ bool button_pressed(int pin)
 {
     return nrf_gpio_pin_read(pin) == 0;
 }
+bool button_te_is_pressed(uint32_t pin)
+{
+    return !nrfx_gpiote_in_is_set(pin);
+}
+
+bool button_te_is_released(uint32_t pin)
+{
+    return nrfx_gpiote_in_is_set(pin);
+}
