@@ -14,12 +14,14 @@
 #include "nrfx_glue.h"
 #include "click.h"
 #include "hsv.h"
+//#include "states.h"
 
 #define LED_PIN NRF_GPIO_PIN_MAP(0, 6)
 
 #define PERIOD_MS 1000
 #define PWM_PLAYBACK_COUNT 1
 
+#define PWM_DEFAULT_MODE_IND_INC    0
 #define DEFAULT_INDIC_COUNT_VAL 0
 #define HUE_INDIC_COUNT_VAL 5
 #define SATURATION_INDIC_COUNT_VAL 10
@@ -45,16 +47,17 @@ static nrf_pwm_sequence_t pwm_sequence = {
     .end_delay = 0
 };
 
-typedef enum {
-    DEFAULT_MODE,
-    HUE_MODE,
-    SATURATION_MODE,
-    VALUE_MODE,
-    MODE_NUMBER
-} hsv_control_state_t;
+// typedef enum {
+//     DEFAULT_MODE,
+//     HUE_MODE,
+//     SATURATION_MODE,
+//     VALUE_MODE,
+// } hsv_control_state_t;
+
+hsv_control_state_t settings_state = DEFAULT_MODE;
 
 static volatile uint16_t status_indicator_step = 10;
-//static hsv_control_state_t settings_state = DEFAULT_MODE;
+
 static volatile bool pwm_is_finished = true;
 static struct hsv hsv_color = {
     .hue = 292,
@@ -90,9 +93,24 @@ int main(void)
     pwm_values.channel_1 = rgb_color.red;
     pwm_values.channel_2 = rgb_color.green;
     pwm_values.channel_3 = rgb_color.blue;
+    blink(0);
 
     while (true)
     {
-       
-    }
+        switch (settings_state) {
+            case DEFAULT_MODE:
+                pwm_values.channel_0 = PWM_DEFAULT_MODE_IND_INC; 
+                break;
+            case HUE_MODE:
+                
+                break;
+            case SATURATION_MODE:
+                break;
+            case VALUE_MODE:
+                break;
+            default:
+                break;
+         }
+     }
+    
 }

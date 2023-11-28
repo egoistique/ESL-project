@@ -1,8 +1,12 @@
 #include "my_button.h"
 #include "click.h"
+#include "my_blink.h"
 
 volatile bool blink_enable = true;
+volatile bool button_long_pressed = false;
 static volatile int click_number = 0;
+
+extern hsv_control_state_t settings_state;
 
 APP_TIMER_DEF(debounce_timer);
 APP_TIMER_DEF(double_click_timer);
@@ -22,10 +26,24 @@ void debounce_handler(void *context)
     if(2 == click_number) {
         blink_enable = !blink_enable;
         click_number = 0;
-        // if(MODE_NUMBER <= ++settings_state) {
-        //     settings_state = DEFAULT_MODE;
-        // }
-    }
+        switch (settings_state) {
+            case DEFAULT_MODE:
+                settings_state = HUE_MODE;
+                break;
+            case HUE_MODE:
+                settings_state = SATURATION_MODE;
+                break;
+            case SATURATION_MODE:
+                settings_state = VALUE_MODE;
+                break;
+            case VALUE_MODE:
+                settings_state = DEFAULT_MODE;
+                break;
+            default:
+                settings_state = DEFAULT_MODE;
+                break;
+         }
+     }
 }
 
 void gpio_handler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
