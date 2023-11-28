@@ -22,6 +22,9 @@ void debounce_handler(void *context)
     if(2 == click_number) {
         blink_enable = !blink_enable;
         click_number = 0;
+        if(MODE_NUMBER <= ++settings_state) {
+            settings_state = DEFAULT_MODE;
+        }
     }
 }
 

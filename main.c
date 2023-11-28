@@ -13,89 +13,95 @@
 #include "nrf_drv_clock.h"
 #include "nrfx_glue.h"
 #include "click.h"
+#include "hsv.h"
 
 #define LED_PIN NRF_GPIO_PIN_MAP(0, 6)
 
+#define PERIOD_MS 1000
+#define PWM_PLAYBACK_COUNT 1
+
+#define DEFAULT_INDIC_COUNT_VAL 0
+#define HUE_INDIC_COUNT_VAL 5
+#define SATURATION_INDIC_COUNT_VAL 10
+#define BRIGHTNESS_INDIC_COUNT_VAL NRFX_PWM_DEFAULT_CONFIG_TOP_VALUE
+
+#define HUE_VAL_PER_DEGREE (NRFX_PWM_DEFAULT_CONFIG_TOP_VALUE / 360)
+
 static const int32_t leds[] = LEDS;
 
-static nrfx_pwm_t m_pwm0 = NRFX_PWM_INSTANCE(0);
-static volatile bool m_pwm_ready = true;
+static volatile nrf_pwm_values_individual_t pwm_values = {
+    .channel_0 = 0,
+    .channel_1 = 0,
+    .channel_2 = 0,
+    .channel_3 = 0
+};
 
-void pwm_handler(nrfx_pwm_evt_type_t event_type)
+static nrfx_pwm_config_t pwm_config = NRFX_PWM_DEFAULT_CONFIG;
+static nrfx_pwm_t pwm_inst = NRFX_PWM_INSTANCE(0);
+static nrf_pwm_sequence_t pwm_sequence = {
+    .values = (nrf_pwm_values_t){.p_individual = (nrf_pwm_values_individual_t *)&pwm_values},
+    .length = NRF_PWM_VALUES_LENGTH(pwm_values),
+    .repeats = 100,
+    .end_delay = 0
+};
+
+
+
+static volatile uint16_t status_indicator_step = 10;
+static hsv_control_state_t settings_state = DEFAULT_MODE;
+static volatile bool pwm_is_finished = true;
+static struct hsv hsv_color = {
+    .hue = 292,
+    .saturation = 100,
+    .brightness = 100
+};
+
+void custom_pwm_handler(nrfx_pwm_evt_type_t event_type)
 {
-    m_pwm_ready = true;
+    pwm_is_finished = true;
 }
 
-void pwm_init(void)
-{
-    nrfx_pwm_config_t const config =
-    {
-        .output_pins =
-        {
-            LED_PIN,              // Channel 0
-            NRFX_PWM_PIN_NOT_USED, // Channel 1
-            NRFX_PWM_PIN_NOT_USED, // Channel 2
-            NRFX_PWM_PIN_NOT_USED, // Channel 3
-        },
-        .irq_priority = APP_IRQ_PRIORITY_LOWEST,
-        .base_clock   = NRF_PWM_CLK_16MHz,
-        .count_mode   = NRF_PWM_MODE_UP,
-        .top_value    = 1000, // Set maximum value for the counter (controls brightness)
-        .load_mode    = NRF_PWM_LOAD_COMMON,
-        .step_mode    = NRF_PWM_STEP_AUTO
-    };
-    
-    nrfx_pwm_init(&m_pwm0, &config, pwm_handler);
-}
 
-void pwm_set_duty_cycle(uint16_t duty_cycle)
-{
-    nrf_pwm_values_individual_t seq_values =
-    {
-        .channel_0 = duty_cycle,
-        .channel_1 = 0,
-        .channel_2 = 0,
-        .channel_3 = 0
-    };
-    
-    nrf_pwm_sequence_t const seq =
-    {
-        .values.p_individual = &seq_values,
-        .length              = NRF_PWM_VALUES_LENGTH(seq_values),
-        .repeats             = 0,
-        .end_delay           = 0
-    };
-    
-    nrfx_pwm_simple_playback(&m_pwm0, &seq, 1, NRFX_PWM_FLAG_STOP);
+void timers_init(void){
+   nrfx_gpiote_init();
+
+    APP_ERROR_CHECK(app_timer_init());
+    APP_ERROR_CHECK(app_timer_create(&debounce_timer, APP_TIMER_MODE_SINGLE_SHOT, debounce_handler));
+    APP_ERROR_CHECK(app_timer_create(&double_click_timer, APP_TIMER_MODE_SINGLE_SHOT, double_click_handler));
+
+    nrfx_gpiote_in_config_t user_gpiote_cfg = NRFX_GPIOTE_CONFIG_IN_SENSE_TOGGLE(false);
+    user_gpiote_cfg.pull = NRF_GPIO_PIN_PULLUP;
+    APP_ERROR_CHECK(nrfx_gpiote_in_init(BUTTON_PIN, &user_gpiote_cfg, gpio_handler));
+    nrfx_gpiote_in_event_enable(BUTTON_PIN, true);
+
 }
 
 int main(void)
 {
-
     configure_leds(sizeof(leds) / sizeof(*leds), leds);
     configure_button(BUTTON_PIN);
-
     lfclk_request();
 
-    nrfx_systick_init();
+   // nrfx_systick_init();
 
     timers_init();
- 
 
     nrf_gpio_cfg_output(LED_PIN);
 
-    pwm_init();
+    nrfx_pwm_init(&pwm_inst, &pwm_config, custom_pwm_handler);
+    nrfx_pwm_simple_playback(&pwm_inst, &pwm_sequence, PWM_PLAYBACK_COUNT, NRFX_PWM_FLAG_LOOP);
+
+
+
+    union rgb rgb_color = hue_to_rgb(hsv_color.hue);
+    set_saturation(hsv_color.saturation, &rgb_color);
+
+    pwm_values.channel_1 = rgb_color.red;
+    pwm_values.channel_2 = rgb_color.green;
+    pwm_values.channel_3 = rgb_color.blue;
 
     while (true)
     {
-        for (uint16_t brightness = 0; brightness <= 1000; brightness += 10)
-        {
-            while (!m_pwm_ready)
-            {
-                // Wait for the previous sequence to finish
-            }
-            pwm_set_duty_cycle(brightness);
-            nrf_delay_ms(10); // Adjust delay for desired transition speed
-        }
+       
     }
 }
