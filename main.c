@@ -45,10 +45,16 @@ static nrf_pwm_sequence_t pwm_sequence = {
     .end_delay = 0
 };
 
-
+typedef enum {
+    DEFAULT_MODE,
+    HUE_MODE,
+    SATURATION_MODE,
+    VALUE_MODE,
+    MODE_NUMBER
+} hsv_control_state_t;
 
 static volatile uint16_t status_indicator_step = 10;
-static hsv_control_state_t settings_state = DEFAULT_MODE;
+//static hsv_control_state_t settings_state = DEFAULT_MODE;
 static volatile bool pwm_is_finished = true;
 static struct hsv hsv_color = {
     .hue = 292,
@@ -59,21 +65,6 @@ static struct hsv hsv_color = {
 void custom_pwm_handler(nrfx_pwm_evt_type_t event_type)
 {
     pwm_is_finished = true;
-}
-
-
-void timers_init(void){
-   nrfx_gpiote_init();
-
-    APP_ERROR_CHECK(app_timer_init());
-    APP_ERROR_CHECK(app_timer_create(&debounce_timer, APP_TIMER_MODE_SINGLE_SHOT, debounce_handler));
-    APP_ERROR_CHECK(app_timer_create(&double_click_timer, APP_TIMER_MODE_SINGLE_SHOT, double_click_handler));
-
-    nrfx_gpiote_in_config_t user_gpiote_cfg = NRFX_GPIOTE_CONFIG_IN_SENSE_TOGGLE(false);
-    user_gpiote_cfg.pull = NRF_GPIO_PIN_PULLUP;
-    APP_ERROR_CHECK(nrfx_gpiote_in_init(BUTTON_PIN, &user_gpiote_cfg, gpio_handler));
-    nrfx_gpiote_in_event_enable(BUTTON_PIN, true);
-
 }
 
 int main(void)

@@ -1,6 +1,3 @@
-#ifndef CUSTOM_HSV_H__
-#define CUSTOM_HSV_H__
-
 #include <stdint.h>
 
 #define MAX_BRIGHTNESS 100
@@ -9,9 +6,9 @@
 typedef uint16_t hue_t;
 
 struct hsv {
-    hue_t hue;       // degree
-    uint8_t saturation; // percent
-    uint8_t brightness; // percent
+    hue_t hue;       
+    uint8_t saturation; 
+    uint8_t brightness;
 
 };
 
@@ -29,4 +26,3 @@ void set_brightness(uint8_t brightness, union rgb *rgb);
 void set_saturation(uint8_t saturation, union rgb *rgb);
 
 
-#endif // CUSTOM_HSV_H__

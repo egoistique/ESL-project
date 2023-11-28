@@ -9,60 +9,6 @@
 
 
 
-/**
- * @brief Get the ptr to max object
- * 
- * @param num 
- * @param array 
- * @return uint16_t* 
- */
-// static 
-// uint16_t *get_ptr_to_max(unsigned int num, uint16_t array[num])
-// {
-//     uint16_t *addr = array;
-
-//     for(unsigned int i = 0; i < num; i++){
-//         if(*addr < array[i]){
-//             addr = &(array[i]);
-//         }
-//     }
-//     return addr;
-// }
-
-/**
- * @brief 
- * 
- * @param num 
- * @param vals 
- * @param ptrs 
- */
-// static
-// void revers_sort_ptrs_to_vals(unsigned int num, uint16_t vals[num], uint16_t *ptrs[num])
-// {
-//     uint16_t *aux_ptr;
-
-//     for(unsigned int i = 0; i < num; i++){
-//         ptrs[i] = &vals[i];
-//     }
-
-//     for(unsigned int j = 0; j < num; j++) {
-//         for(unsigned int i = 0; i < (num - j -1); i++){
-//             if(*ptrs[i] < *ptrs[i + 1]) {
-//                 aux_ptr = ptrs[i];
-//                 ptrs[i] = ptrs[i + 1];
-//                 ptrs[i + 1] = aux_ptr;
-//             }
-//         }
-//     }
-// }
-
-/**
- * @brief 
- * 
- * @param hue 
- * @return union 
- */
-// Convert hue value in degrees to rgb value in counts
 union rgb hue_to_rgb(hue_t hue)
 {
     union rgb rgb = {
@@ -71,10 +17,8 @@ union rgb hue_to_rgb(hue_t hue)
         .blue = 0,
     };
 
-    // To remove redundent period
     hue = hue % 360;
 
-    // TODO: Make the biggest value equal to TOP_COUNT value and then calculate the second one
     uint16_t second_color = PWM_COLOR_STEP * (hue % 120);
     uint16_t first_color = PWM_COUNT_TOP - second_color;
 
@@ -95,12 +39,7 @@ union rgb hue_to_rgb(hue_t hue)
     return rgb;
 }
 
-/**
- * @brief Sets brightness for rgb. To use only with 100% values of input rgb
- * 
- * @param brightness 
- * @param rgb 
- */
+
 void set_brightness(uint8_t brightness, union rgb *rgb)
 {
     if(!rgb){
@@ -118,12 +57,7 @@ void set_brightness(uint8_t brightness, union rgb *rgb)
     }
 }
 
-/**
- * @brief Set the saturation object
- * 
- * @param saturation 
- * @param rgb 
- */
+
 void set_saturation(uint8_t saturation, union rgb *rgb)
 {
     uint16_t *max_val_ptr = MAX_VAL_PTR(&rgb->components[0], MAX_VAL_PTR(&rgb->components[1], &rgb->components[2]));
