@@ -20,6 +20,10 @@
         "sdk_config.h": "c",
         "states.h": "c",
         "click.h": "c",
-        "hsv.h": "c"
+        "hsv.h": "c",
+        "my_button.h": "c",
+        "set_color.h": "c",
+        "pwm.h": "c",
+        "math.h": "c"
     }
 }

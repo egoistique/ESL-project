@@ -24,7 +24,11 @@ union rgb {
     };
 };
 
+// void custom_pwm_handler(nrfx_pwm_evt_type_t event_type);
+
 void hsv_to_rgb(struct hsv color, union rgb *rgb_color);
+void set_hue(struct hsv *color);
+//void set_saturation(struct hsv *color, struct hsv_control_state *state);
 
 
 

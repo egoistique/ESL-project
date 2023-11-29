@@ -1,4 +1,6 @@
 #include "pwm.h"
+#include "my_button.h"
+#include "states.h"
 
 volatile nrf_pwm_values_individual_t pwm_values;
 nrfx_pwm_config_t pwm_config = NRFX_PWM_DEFAULT_CONFIG;
@@ -10,3 +12,4 @@ nrf_pwm_sequence_t pwm_sequence = {
 };
 
 volatile uint16_t status_indicator_step = 0;
+

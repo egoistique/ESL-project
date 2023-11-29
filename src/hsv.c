@@ -1,6 +1,7 @@
 #include <math.h>
 #include "hsv.h"
 #include "nordic_common.h"
+#include "my_button.h"
 
 
 #define PWM_COUNT_TOP 1200
@@ -13,6 +14,33 @@
     .saturation = 100,
     .brightness = 100
 };
+
+struct hsv_control_statee {
+    custom_button_context_t *button;
+    bool saturation_direction;
+    bool brightness_direction;
+};
+
+void set_hue(struct hsv *color){
+    if(360 <= ++color->hue) {
+        color->hue = 0;
+     }
+}
+
+
+
+// void set_saturationn(struct hsv *color, struct hsv_control_statee *state){
+//     if(state->saturation_direction) {
+//          if(MAX_SATURATION <= ++color->saturation) {
+//                         state->saturation_direction = false;
+//                     }
+//                 }
+//                 else {
+//                     if(0 >= --color->saturation) {
+//                         state->saturation_direction = true;
+//                     }
+//      }
+// }
 
 void hsv_to_rgb(struct hsv color, union rgb *rgb_color)
 {

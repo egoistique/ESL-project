@@ -8,13 +8,6 @@
 #define DEBOUNCE_TIME_MS 10
 #define DOUBLE_CLICK_TIME_MS 1000
 
-// typedef enum {
-//     DEFAULT_MODE,
-//     HUE_MODE,
-//     SATURATION_MODE,
-//     VALUE_MODE,
-//     MODE_NUMBER,
-// } hsv_control_state_t;
 
 extern volatile bool blink_enable;
 extern volatile bool button_long_pressed;

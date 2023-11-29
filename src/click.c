@@ -2,49 +2,59 @@
 #include "click.h"
 #include "my_blink.h"
 #include "states.h"
+#include "pwm.h"
 
-volatile bool blink_enable = true;
-volatile bool button_long_pressed = false;
-static volatile int click_number = 0;
+// volatile bool blink_enable = true;
+// volatile bool button_long_pressed = false;
+// static volatile int click_number = 0;
 
-extern hsv_control_state_t settings_state;
+// extern hsv_control_state_t settings_state;
 
 // APP_TIMER_DEF(debounce_timer);
 // APP_TIMER_DEF(double_click_timer);
 
+
+
 // void double_click_handler(void *context)
 // {
-//     click_number = 0;
+//     custom_button_context_t * button = (custom_button_context_t *) context;
+
+//     if(button_te_is_pressed(button->pin)) {
+//         switch (button->current_click_num) {
+//             case 1: button->button_state = SINGLE_CLICK_PRESSED; break;
+//             case 2: button->button_state = DOUBLE_CLICK_PRESSED; break;
+//         }
+//     }
+
+//     if(button_te_is_released(button->pin)) {
+//         switch(button->current_click_num) {
+//             case 0:
+//                 if(SINGLE_CLICK_PRESSED == button->button_state) {
+//                     button->button_state = SINGLE_CLICK_RELEASED;
+//                 }
+//                 else {
+//                     button->button_state = DOUBLE_CLICK_RELEASED;
+//                 }
+//                 break;
+//             case 1: button->button_state = SINGLE_CLICK_RELEASED; break;
+//             case 2: button->button_state = DOUBLE_CLICK_RELEASED; break;
+//         }
+//     }
+
+//     button->current_click_num = 0;
+
+//     application_state_handler(button);
 // }
 
 
 // void debounce_handler(void *context)
 // {
-//     if(!nrfx_gpiote_in_is_set(BUTTON_PIN)) {
-//         click_number++;
+//     custom_button_context_t * button = (custom_button_context_t *) context;
+//     if(button_te_is_pressed(button->pin)) { 
+//         if(2 > button->current_click_num) {
+//             button->current_click_num++;
+//         }
 //     }
-
-//     if(2 == click_number) {
-//         blink_enable = !blink_enable;
-//         click_number = 0;
-//         switch (settings_state) {
-//             case DEFAULT_MODE:
-//                 settings_state = HUE_MODE;
-//                 break;
-//             case HUE_MODE:
-//                 settings_state = SATURATION_MODE;
-//                 break;
-//             case SATURATION_MODE:
-//                 settings_state = VALUE_MODE;
-//                 break;
-//             case VALUE_MODE:
-//                 settings_state = DEFAULT_MODE;
-//                 break;
-//             default:
-//                 settings_state = DEFAULT_MODE;
-//                 break;
-//          }
-//      }
 // }
 
 // void gpio_handler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
@@ -55,16 +65,16 @@ extern hsv_control_state_t settings_state;
 // }
 
 
-void lfclk_request(void)
-{
-    APP_ERROR_CHECK(nrf_drv_clock_init());
-    nrf_drv_clock_lfclk_request(NULL);
+// void lfclk_request(void)
+// {
+//     APP_ERROR_CHECK(nrf_drv_clock_init());
+//     nrf_drv_clock_lfclk_request(NULL);
 
-    while (!nrf_drv_clock_lfclk_is_running())
-    {
-        /* Just waiting until the lf clock starts up */
-    }
-}
+//     while (!nrf_drv_clock_lfclk_is_running())
+//     {
+//         /* Just waiting until the lf clock starts up */
+//     }
+// }
 
 // void timers_init(void){
 //    nrfx_gpiote_init();
