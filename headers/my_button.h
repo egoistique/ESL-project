@@ -18,6 +18,17 @@ typedef struct {
     volatile unsigned int current_click_num;
 } custom_button_context_t;
 
+extern custom_button_context_t main_button;
+
+
+struct hsv_control_state {
+    custom_button_context_t *button;
+    bool saturation_direction;
+    bool brightness_direction;
+};
+
+
+
 void configure_button(int pin);
 bool button_pressed(int pin);
 bool button_te_is_pressed(uint32_t pin);

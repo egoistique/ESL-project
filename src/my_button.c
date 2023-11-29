@@ -1,5 +1,11 @@
 #include "my_button.h"
 
+ custom_button_context_t main_button = {
+    .pin = BUTTON_PIN
+};
+
+
+
 void configure_button(int pin)
 {
     nrf_gpio_cfg_input(pin, NRF_GPIO_PIN_PULLUP);

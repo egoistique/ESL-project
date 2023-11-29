@@ -19,29 +19,13 @@
 
 static const int32_t leds[] = LEDS;
 
-static volatile uint16_t status_indicator_step = 0;
-
-static custom_button_context_t main_button = {
-    .pin = BUTTON_PIN
-};
 
 APP_TIMER_DEF(debounce_timer);
 APP_TIMER_DEF(double_click_timer);
 
 
-struct hsv_control_state {
-    custom_button_context_t *button;
-    bool saturation_direction;
-    bool brightness_direction;
-};
+struct hsv_control_state hsv_ctrl_state_ctx = { .button = &main_button };
 
- struct hsv_control_state hsv_ctrl_state_ctx = { .button = &main_button };
-
-static struct hsv hsv_color = {
-    .hue = 292,
-    .saturation = 100,
-    .brightness = 100
-};
 
 void process_hsv_state(struct hsv *color, struct hsv_control_state *state)
 {

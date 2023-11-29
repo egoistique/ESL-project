@@ -9,3 +9,4 @@ nrf_pwm_sequence_t pwm_sequence = {
     .repeats = 100,
 };
 
+volatile uint16_t status_indicator_step = 0;

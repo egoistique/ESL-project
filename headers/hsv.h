@@ -13,6 +13,8 @@ struct hsv{
     uint8_t brightness; 
 };
 
+struct hsv hsv_color;
+
 union rgb {
     uint16_t components[3];
     struct {
