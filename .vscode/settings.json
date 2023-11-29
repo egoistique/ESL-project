@@ -17,6 +17,9 @@
         "nrf_drv_clock.h": "c",
         "nrfx_glue.h": "c",
         "nordic_common.h": "c",
-        "sdk_config.h": "c"
+        "sdk_config.h": "c",
+        "states.h": "c",
+        "click.h": "c",
+        "hsv.h": "c"
     }
 }

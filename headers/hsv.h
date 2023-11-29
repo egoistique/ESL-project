@@ -7,10 +7,10 @@
 
 typedef uint16_t hue_t;
 
-struct hsv {
-    hue_t hue;          // degree
-    uint8_t saturation; // percent
-    uint8_t brightness; // percent
+struct hsv{
+    hue_t hue;          
+    uint8_t saturation; 
+    uint8_t brightness; 
 };
 
 union rgb {

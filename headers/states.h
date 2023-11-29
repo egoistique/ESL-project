@@ -1,3 +1,8 @@
+#ifndef STATES_H
+#define STATES_H
+
+//#include "my_button.h"
+
 typedef enum {
     DEFAULT_MODE,
     HUE_MODE,
@@ -5,3 +10,11 @@ typedef enum {
     VALUE_MODE,
     MODE_NUMBER,
 } hsv_control_state_t;
+
+extern hsv_control_state_t app_state;
+
+extern struct hsv_control_state hsv_ctrl_state_ctx;
+
+
+#endif // STATES_H
+

@@ -1,6 +1,7 @@
 #include "my_button.h"
 #include "click.h"
 #include "my_blink.h"
+#include "states.h"
 
 volatile bool blink_enable = true;
 volatile bool button_long_pressed = false;

@@ -14,44 +14,20 @@
 #include "nrfx_glue.h"
 #include "click.h"
 #include "hsv.h"
-//#include "states.h"
+#include "pwm.h"
+#include "states.h"
 
-#define LED_PIN NRF_GPIO_PIN_MAP(0, 6)
-
-#define PERIOD_MS 1000
-
-#define PWM_BASE_CLOCK_HZ 125000 
-#define PWM_BASE_PERIOD_US (1000000 / PWM_BASE_CLOCK_HZ)
-#define PWM_TIME_BETWEEN_HANDLERS_US (1200 * PWM_BASE_PERIOD_US)
-
-#define PWM_DEFAULT_MODE_IND_INC 0
-#define PWM_HUE_MODE_IND_INC (PERIOD_MS / 2 * 1000 / PWM_TIME_BETWEEN_HANDLERS_US)
-#define PWM_SATURATION_MODE_IND_INC (PERIOD_MS * 1000 / PWM_TIME_BETWEEN_HANDLERS_US)
-#define PWM_VALUE_MODE_IND_INC 1200
-#define PWM_PLAYBACK_COUNT 1
-
-
- const unsigned int device_id[] = {6, 5, 8, 1};
 static const int32_t leds[] = LEDS;
 
 static volatile uint16_t status_indicator_step = 0;
-static hsv_control_state_t app_state = DEFAULT_MODE;
 
 static custom_button_context_t main_button = {
     .pin = BUTTON_PIN
 };
+
 APP_TIMER_DEF(debounce_timer);
 APP_TIMER_DEF(double_click_timer);
 
-static volatile nrf_pwm_values_individual_t pwm_values;
-
-static nrfx_pwm_config_t pwm_config = NRFX_PWM_DEFAULT_CONFIG;
-static nrfx_pwm_t pwm_inst = NRFX_PWM_INSTANCE(0);
-static nrf_pwm_sequence_t pwm_sequence = {
-    .values = (nrf_pwm_values_t){.p_individual = (nrf_pwm_values_individual_t *)&pwm_values},
-    .length = NRF_PWM_VALUES_LENGTH(pwm_values),
-    .repeats = 100,
-};
 
 struct hsv_control_state {
     custom_button_context_t *button;
@@ -59,7 +35,7 @@ struct hsv_control_state {
     bool brightness_direction;
 };
 
-struct hsv_control_state hsv_ctrl_state_ctx = { .button = &main_button };
+ struct hsv_control_state hsv_ctrl_state_ctx = { .button = &main_button };
 
 static struct hsv hsv_color = {
     .hue = 292,

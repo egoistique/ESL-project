@@ -36,6 +36,8 @@ SRC_FILES += \
   $(PROJ_DIR)/src/my_blink.c \
   $(PROJ_DIR)/src/click.c \
   $(PROJ_DIR)/src/hsv.c \
+  $(PROJ_DIR)/src/pwm.c \
+  $(PROJ_DIR)/src/states.c \
   $(SDK_ROOT)/modules/nrfx/mdk/system_nrf52840.c \
   $(SDK_ROOT)/modules/nrfx/drivers/src/nrfx_gpiote.c \
   $(SDK_ROOT)/modules/nrfx/drivers/src/nrfx_systick.c \
