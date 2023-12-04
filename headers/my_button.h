@@ -1,7 +1,8 @@
 #include <stdbool.h>
+#include "states.h"
 #include "nrf_gpio.h"
 #include "nrfx_gpiote.h"
-
+#include "nrfx_pwm.h"
 #define BUTTON_PIN NRF_GPIO_PIN_MAP(1, 6)
 #define DEBOUNCE_TIME_MS 10
 #define DOUBLE_CLICK_TIME_MS 1000
@@ -25,6 +26,8 @@ typedef struct {
 
 extern custom_button_context_t main_button;
 
+extern struct hsv_control_state hsv_ctrl_state_ctx;
+
 struct hsv_control_state {
     custom_button_context_t *button;
     bool saturation_direction;
@@ -43,3 +46,5 @@ bool button_te_is_pressed(uint32_t pin);
 bool button_te_is_released(uint32_t pin);
 
 void application_state_handler(const custom_button_context_t *button);
+void process_hsv_state(struct hsv *color, struct hsv_control_state *state);
+void custom_pwm_handler(nrfx_pwm_evt_type_t event_type);
