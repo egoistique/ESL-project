@@ -19,7 +19,6 @@
 
 static const int32_t leds[] = LEDS;
 
-
 APP_TIMER_DEF(debounce_timer);
 APP_TIMER_DEF(double_click_timer);
 
@@ -71,34 +70,6 @@ void process_hsv_state(struct hsv *color, struct hsv_control_state *state)
     pwm_values.channel_3 = the_color.blue;
 }
 
-void application_state_handler(const custom_button_context_t *button)
-{
-    if(DOUBLE_CLICK_RELEASED == button->button_state) {
-        if(MODE_NUMBER <= ++app_state) {
-            app_state = DEFAULT_MODE;
-        }
-    }
-
-    switch (app_state) {
-        case DEFAULT_MODE: 
-            status_indicator_step = 0; 
-            pwm_values.channel_0 = PWM_DEFAULT_MODE_IND_INC; 
-            break;
-        case HUE_MODE: 
-            status_indicator_step = PWM_HUE_MODE_IND_INC;
-            break;
-        case SATURATION_MODE: 
-            status_indicator_step = PWM_SATURATION_MODE_IND_INC; 
-            break;
-        case VALUE_MODE: 
-            status_indicator_step = 0; 
-            pwm_values.channel_0 = PWM_VALUE_MODE_IND_INC; 
-            break;
-        default:
-            break;
-    }
-
-}
 
 void custom_pwm_handler(nrfx_pwm_evt_type_t event_type)
 {
@@ -179,7 +150,6 @@ void gpio_handler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
     ret = app_timer_start(double_click_timer, APP_TIMER_TICKS(DOUBLE_CLICK_TIME_MS), (void *)&main_button);
     APP_ERROR_CHECK(ret);
 }
-
 
 
 void timers_init(void){

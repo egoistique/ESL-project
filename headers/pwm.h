@@ -18,4 +18,3 @@ extern nrfx_pwm_t pwm_inst;
 extern nrf_pwm_sequence_t pwm_sequence;
 extern volatile uint16_t status_indicator_step;
 
-

@@ -12,5 +12,5 @@ typedef enum {
 extern hsv_control_state_t app_state;
 extern struct hsv_control_state hsv_ctrl_state_ctx;
 
-#endif // STATES_H
+#endif 
 

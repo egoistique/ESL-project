@@ -41,3 +41,5 @@ void configure_button(int pin);
 bool button_pressed(int pin);
 bool button_te_is_pressed(uint32_t pin);
 bool button_te_is_released(uint32_t pin);
+
+void application_state_handler(const custom_button_context_t *button);

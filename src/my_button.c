@@ -40,33 +40,33 @@ void lfclk_request(void)
     }
 }
 
-// void application_state_handler(const custom_button_context_t *button)
-// {
-//     if(DOUBLE_CLICK_RELEASED == button->button_state) {
-//         if(MODE_NUMBER <= ++app_state) {
-//             app_state = DEFAULT_MODE;
-//         }
-//     }
 
-//     switch (app_state) {
-//         case DEFAULT_MODE: 
-//             status_indicator_step = 0; 
-//             pwm_values.channel_0 = PWM_DEFAULT_MODE_IND_INC; 
-//             break;
-//         case HUE_MODE: 
-//             status_indicator_step = PWM_HUE_MODE_IND_INC;
-//             break;
-//         case SATURATION_MODE: 
-//             status_indicator_step = PWM_SATURATION_MODE_IND_INC; 
-//             break;
-//         case VALUE_MODE: 
-//             status_indicator_step = 0; 
-//             pwm_values.channel_0 = PWM_VALUE_MODE_IND_INC; 
-//             break;
-//         default:
-//             break;
-//     }
+void application_state_handler(const custom_button_context_t *button)
+{
+    if(DOUBLE_CLICK_RELEASED == button->button_state) {
+        if(MODE_NUMBER <= ++app_state) {
+            app_state = DEFAULT_MODE;
+        }
+    }
 
-// }
+    switch (app_state) {
+        case DEFAULT_MODE: 
+            status_indicator_step = 0; 
+            pwm_values.channel_0 = PWM_DEFAULT_MODE_IND_INC; 
+            break;
+        case HUE_MODE: 
+            status_indicator_step = PWM_HUE_MODE_IND_INC;
+            break;
+        case SATURATION_MODE: 
+            status_indicator_step = PWM_SATURATION_MODE_IND_INC; 
+            break;
+        case VALUE_MODE: 
+            status_indicator_step = 0; 
+            pwm_values.channel_0 = PWM_VALUE_MODE_IND_INC; 
+            break;
+        default:
+            break;
+    }
+}
 
 
