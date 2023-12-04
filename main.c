@@ -12,7 +12,6 @@
 #include "nrfx_pwm.h"
 #include "nrf_drv_clock.h"
 #include "nrfx_glue.h"
-//#include "click.h"
 #include "hsv.h"
 #include "pwm.h"
 #include "states.h"
@@ -24,9 +23,7 @@ static const int32_t leds[] = LEDS;
 APP_TIMER_DEF(debounce_timer);
 APP_TIMER_DEF(double_click_timer);
 
-
 struct hsv_control_state hsv_ctrl_state_ctx = { .button = &main_button };
-
 
 void process_hsv_state(struct hsv *color, struct hsv_control_state *state)
 {

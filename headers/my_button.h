@@ -1,9 +1,6 @@
 #include <stdbool.h>
 #include "nrf_gpio.h"
 #include "nrfx_gpiote.h"
-#include "app_timer.h"
-#include "nrf_drv_clock.h"
-#include "nrfx_glue.h"
 
 #define BUTTON_PIN NRF_GPIO_PIN_MAP(1, 6)
 #define DEBOUNCE_TIME_MS 10
@@ -28,13 +25,11 @@ typedef struct {
 
 extern custom_button_context_t main_button;
 
-
 struct hsv_control_state {
     custom_button_context_t *button;
     bool saturation_direction;
     bool brightness_direction;
 };
-
 
 void double_click_handler(void *context);
 void debounce_handler(void *context);
