@@ -24,6 +24,7 @@
         "my_button.h": "c",
         "set_color.h": "c",
         "pwm.h": "c",
-        "math.h": "c"
+        "math.h": "c",
+        "click_manager.h": "c"
     }
 }

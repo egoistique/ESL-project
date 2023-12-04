@@ -8,8 +8,6 @@
 
 #define DELAY 500
 
-
-
 void led_clear(int32_t pin);
 void led_set(int32_t pin);
 

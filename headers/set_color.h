@@ -1,6 +1,5 @@
 
 #include "states.h"
-
 #include "pwm.h"
 
 void application_state_handler(const custom_button_context_t *button);

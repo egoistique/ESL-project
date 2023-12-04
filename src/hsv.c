@@ -17,21 +17,12 @@
     .brightness = 100
 };
 
-// struct hsv_control_statee {
-//     custom_button_context_t *button;
-//     bool saturation_direction;
-//     bool brightness_direction;
-// };
 
 void set_hue(struct hsv *color){
     if(360 <= ++color->hue) {
         color->hue = 0;
      }
 }
-
-
-
-
 
 void hsv_to_rgb(struct hsv color, union rgb *rgb_color)
 {

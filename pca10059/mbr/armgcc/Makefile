@@ -38,6 +38,7 @@ SRC_FILES += \
   $(PROJ_DIR)/src/pwm.c \
   $(PROJ_DIR)/src/states.c \
   $(PROJ_DIR)/src/set_color.c \
+  $(PROJ_DIR)/src/click_manager.c \
   $(SDK_ROOT)/modules/nrfx/mdk/system_nrf52840.c \
   $(SDK_ROOT)/modules/nrfx/drivers/src/nrfx_gpiote.c \
   $(SDK_ROOT)/modules/nrfx/drivers/src/nrfx_systick.c \
