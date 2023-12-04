@@ -1,5 +1,5 @@
 #include "states.h"
 
-hsv_control_state_t app_state = DEFAULT_MODE;
+enum hsv_mode_state_t app_state = DEFAULT_MODE;
 
 

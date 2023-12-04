@@ -3,20 +3,12 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-typedef enum {
+enum hsv_mode_state_t {
     DEFAULT_MODE,
     HUE_MODE,
     SATURATION_MODE,
     VALUE_MODE,
     MODE_NUMBER,
-} hsv_control_state_t;
-
-typedef uint16_t hue_t;
-
-struct hsv{
-    hue_t hue;          
-    uint8_t saturation; 
-    uint8_t brightness; 
 };
 
 enum button_state {
@@ -26,6 +18,13 @@ enum button_state {
     SINGLE_CLICK_RELEASED,
     DOUBLE_CLICK_RELEASED
 };
+
+struct hsv{
+    uint16_t hue;          
+    uint8_t saturation; 
+    uint8_t brightness; 
+};
+
 
 typedef struct {
     uint32_t pin;
@@ -43,8 +42,8 @@ struct hsv_control_state {
     bool brightness_direction;
 };
 
-extern hsv_control_state_t app_state;
-extern struct hsv_control_state hsv_ctrl_state_ctx;
+extern enum hsv_mode_state_t app_state;
+
 
 #endif 
 
