@@ -29,7 +29,6 @@ struct hsv{
 typedef struct {
     uint32_t pin;
     volatile enum button_state button_state;
-    volatile unsigned int current_click_num;
 } custom_button_context_t;
 
 extern custom_button_context_t main_button;
@@ -38,12 +37,10 @@ extern struct hsv_control_state hsv_ctrl_state_ctx;
 
 struct hsv_control_state {
     custom_button_context_t *button;
-    bool saturation_direction;
-    bool brightness_direction;
+
 };
 
 extern enum hsv_mode_state_t app_state;
-
 
 #endif 
 

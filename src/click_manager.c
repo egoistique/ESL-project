@@ -13,15 +13,15 @@ void double_click_handler(void *context)
 {
     custom_button_context_t * button = (custom_button_context_t *) context;
 
-    if(button_te_is_pressed(button->pin)) {
-        switch (button->current_click_num) {
+    if(button_te_is_pressed(BUTTON_PIN)) {
+        switch (current_click_num) {
             case 1: button->button_state = SINGLE_CLICK_PRESSED; break;
             case 2: button->button_state = DOUBLE_CLICK_PRESSED; break;
         }
     }
 
-    if(button_te_is_released(button->pin)) {
-        switch(button->current_click_num) {
+    if(button_te_is_released(BUTTON_PIN)) {
+        switch(current_click_num) {
             case 0:
                 if(SINGLE_CLICK_PRESSED == button->button_state) {
                     button->button_state = SINGLE_CLICK_RELEASED;
@@ -35,17 +35,16 @@ void double_click_handler(void *context)
         }
     }
 
-    button->current_click_num = 0;
+    current_click_num = 0;
 
     application_state_handler(button);
 }
 
 void debounce_handler(void *context)
 {
-    custom_button_context_t * button = (custom_button_context_t *) context;
-    if(button_te_is_pressed(button->pin)) { 
-        if(2 > button->current_click_num) {
-            button->current_click_num++;
+    if(button_te_is_pressed(BUTTON_PIN)) { 
+        if(2 > current_click_num) {
+            current_click_num++;
         }
     }
 }

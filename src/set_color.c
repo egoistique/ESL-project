@@ -2,6 +2,9 @@
 #include "pwm.h"
 #include "hsv.h"
 
+ bool saturation_direction = true;
+ bool brightness_direction = true;
+
 void application_state_handler(const custom_button_context_t *button)
 {
     if(DOUBLE_CLICK_RELEASED == button->button_state) {
@@ -11,7 +14,7 @@ void application_state_handler(const custom_button_context_t *button)
     }
 
     switch (app_state) {
-        case DEFAULT_MODE: 
+        case DEFAULT_MODE: //скорее всгео можно убрать
             status_indicator_step = 0; 
             pwm_values.channel_0 = PWM_DEFAULT_MODE_IND_INC; 
             break;
@@ -38,27 +41,27 @@ void process_hsv_state(struct hsv *color, struct hsv_control_state *state)
                 set_hue(color);
                 break;
             case SATURATION_MODE:
-                if(state->saturation_direction) {
+                if(saturation_direction) {
                     if(MAX_SATURATION <= ++color->saturation) {
-                        state->saturation_direction = false;
+                        saturation_direction = false;
                     }
                 }
                 else {
                     if(0 >= --color->saturation) {
-                        state->saturation_direction = true;
+                        saturation_direction = true;
                     }
                 }
                 
                 break;
             case VALUE_MODE: 
-                if(state->brightness_direction) {
+                if(brightness_direction) {
                     if(MAX_SATURATION <= ++color->brightness) {
-                        state->brightness_direction = false;
+                        brightness_direction = false;
                     }
                 }
                 else {
                     if(0 >= --color->brightness) {
-                        state->brightness_direction = true;
+                        brightness_direction = true;
                     }
                 }
                 break;
