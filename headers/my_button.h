@@ -6,6 +6,11 @@
 #include "nrfx_glue.h"
 
 #define BUTTON_PIN NRF_GPIO_PIN_MAP(1, 6)
+#define DEBOUNCE_TIME_MS 10
+#define DOUBLE_CLICK_TIME_MS 1000
+
+extern volatile bool blink_enable;
+extern volatile bool button_long_pressed;
 
 enum button_state {
     DEFAULT_UNKNOWN,
@@ -30,15 +35,6 @@ struct hsv_control_state {
     bool brightness_direction;
 };
 
-void application_state_handler(const custom_button_context_t *button);
-
-#define DEBOUNCE_TIME_MS 10
-#define DOUBLE_CLICK_TIME_MS 1000
-
-
-extern volatile bool blink_enable;
-extern volatile bool button_long_pressed;
-//extern hsv_control_state_t settings_state;
 
 void double_click_handler(void *context);
 void debounce_handler(void *context);

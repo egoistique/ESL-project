@@ -65,16 +65,16 @@
 // }
 
 
-// void lfclk_request(void)
-// {
-//     APP_ERROR_CHECK(nrf_drv_clock_init());
-//     nrf_drv_clock_lfclk_request(NULL);
+void lfclk_request(void)
+{
+    APP_ERROR_CHECK(nrf_drv_clock_init());
+    nrf_drv_clock_lfclk_request(NULL);
 
-//     while (!nrf_drv_clock_lfclk_is_running())
-//     {
-//         /* Just waiting until the lf clock starts up */
-//     }
-// }
+    while (!nrf_drv_clock_lfclk_is_running())
+    {
+        /* Just waiting until the lf clock starts up */
+    }
+}
 
 // void timers_init(void){
 //    nrfx_gpiote_init();

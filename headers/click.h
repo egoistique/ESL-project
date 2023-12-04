@@ -13,8 +13,8 @@ extern volatile bool blink_enable;
 extern volatile bool button_long_pressed;
 //extern hsv_control_state_t settings_state;
 
-void double_click_handler(void *context);
-void debounce_handler(void *context);
-void gpio_handler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action);
+// void double_click_handler(void *context);
+// void debounce_handler(void *context);
+// void gpio_handler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action);
 void lfclk_request(void);
 void timers_init(void);
