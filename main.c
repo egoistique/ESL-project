@@ -15,7 +15,7 @@
 #include "hsv.h"
 #include "pwm.h"
 #include "states.h"
-//#include "set_color.h"
+#include "set_color.h"
 
 static const int32_t leds[] = LEDS;
 
