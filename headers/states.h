@@ -17,7 +17,7 @@ extern volatile enum button_state {
     DOUBLE_CLICK_PRESSED,
     SINGLE_CLICK_RELEASED,
     DOUBLE_CLICK_RELEASED
-}button_state;
+} button_state;
 
 struct hsv{
     uint16_t hue;          
@@ -26,19 +26,7 @@ struct hsv{
 };
 
 
-typedef struct {
-    uint32_t pin;
-    
-} custom_button_context_t;
-
- 
-extern custom_button_context_t main_button;
-
-struct hsv_control_state {
-    custom_button_context_t *button;
-
-};
-
+extern uint32_t main_button_pin;
 extern enum hsv_mode_state_t app_state;
 
 #endif 

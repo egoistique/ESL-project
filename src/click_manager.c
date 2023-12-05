@@ -50,8 +50,8 @@ void debounce_handler(void *context)
 void gpio_handler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
 {
     APP_ERROR_CHECK(app_timer_stop(debounce_timer));
-    APP_ERROR_CHECK(app_timer_start(debounce_timer, APP_TIMER_TICKS(DEBOUNCE_TIME_MS), (void *)&main_button));
-    APP_ERROR_CHECK(app_timer_start(double_click_timer, APP_TIMER_TICKS(DOUBLE_CLICK_TIME_MS), (void *)&main_button));
+    APP_ERROR_CHECK(app_timer_start(debounce_timer, APP_TIMER_TICKS(DEBOUNCE_TIME_MS), (void *)&main_button_pin));
+    APP_ERROR_CHECK(app_timer_start(double_click_timer, APP_TIMER_TICKS(DOUBLE_CLICK_TIME_MS), (void *)&main_button_pin));
 }
 
 

@@ -6,9 +6,7 @@
 #include "pwm.h"
 #include "hsv.h"
 
-custom_button_context_t main_button = {
-    .pin = BUTTON_PIN
-};
+uint32_t main_button_pin = BUTTON_PIN;
 
 void configure_button(int pin)
 {
