@@ -12,7 +12,7 @@
 #define MAX_VAL_PTR(a, b) ((*(a) > *(b)) ? a : b)
 
  struct hsv hsv_color = {
-    .hue = 292,
+    .hue = 100,
     .saturation = 100,
     .brightness = 100
 };

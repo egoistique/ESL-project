@@ -3,7 +3,7 @@
 #define DEBOUNCE_TIME_MS 10
 #define DOUBLE_CLICK_TIME_MS 1000
 
-volatile unsigned int current_click_num;
+volatile unsigned int click_num;
 
 void double_click_handler(void *context);
 void debounce_handler(void *context);

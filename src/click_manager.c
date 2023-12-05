@@ -11,39 +11,31 @@ APP_TIMER_DEF(double_click_timer);
 
 void double_click_handler(void *context)
 {
-    if(button_te_is_pressed(BUTTON_PIN)) {
-        switch (current_click_num) {
-            case 1: button_state = SINGLE_CLICK_PRESSED; break;
-            case 2: button_state = DOUBLE_CLICK_PRESSED; break;
+    if(button_pressed(BUTTON_PIN)) {
+        if(click_num == 1) {
+            button_state = LONG_CLICK_PRESSED;
+        }
+    } else {
+        if(LONG_CLICK_PRESSED == button_state) {
+            button_state = LONG_CLICK_RELEASED;
+        }else if(DOUBLE_CLICK_PRESSED == button_state){
+            button_state = DOUBLE_CLICK_RELEASED;
         }
     }
 
-    if(button_te_is_released(BUTTON_PIN)) {
-        switch(current_click_num) {
-            case 0:
-                if(SINGLE_CLICK_PRESSED == button_state) {
-                    button_state = SINGLE_CLICK_RELEASED;
-                }
-                else {
-                    button_state = DOUBLE_CLICK_RELEASED;
-                }
-                break;
-            case 1: button_state = SINGLE_CLICK_RELEASED; break;
-            case 2: button_state = DOUBLE_CLICK_RELEASED; break;
-        }
-    }
-
-    current_click_num = 0;
-
+    click_num = 0;
     application_state_handler();
 }
 
 void debounce_handler(void *context)
 {
-    if(button_te_is_pressed(BUTTON_PIN)) { 
-        if(2 > current_click_num) {
-            current_click_num++;
-        }
+    if(button_pressed(BUTTON_PIN)) { 
+        click_num++;
+    }
+
+    if(click_num == 2) {
+        click_num = 0;
+        button_state = DOUBLE_CLICK_PRESSED;
     }
 }
 

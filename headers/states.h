@@ -3,7 +3,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-enum hsv_mode_state_t {
+enum mode_state {
     DEFAULT_MODE,
     HUE_MODE,
     SATURATION_MODE,
@@ -13,9 +13,9 @@ enum hsv_mode_state_t {
 
 extern volatile enum button_state {
     DEFAULT_UNKNOWN,
-    SINGLE_CLICK_PRESSED,
+    LONG_CLICK_PRESSED,
     DOUBLE_CLICK_PRESSED,
-    SINGLE_CLICK_RELEASED,
+    LONG_CLICK_RELEASED,
     DOUBLE_CLICK_RELEASED
 } button_state;
 
@@ -25,7 +25,7 @@ struct hsv{
     uint8_t brightness; 
 };
 
-extern enum hsv_mode_state_t app_state;
+extern enum mode_state state;
 
 #endif 
 

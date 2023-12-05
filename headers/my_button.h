@@ -17,7 +17,5 @@ void lfclk_request(void);
 void timers_init(void);
 
 void configure_button(int pin);
-bool button_pressed(int pin);
-bool button_te_is_pressed(uint32_t pin);
-bool button_te_is_released(uint32_t pin);
+bool button_pressed(uint32_t pin);
 

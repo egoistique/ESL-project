@@ -2,18 +2,18 @@
 #include "pwm.h"
 #include "hsv.h"
 
- bool saturation_direction = true;
- bool brightness_direction = true;
+ bool saturation_increases = true;
+ bool brightness_increases = true;
 
 void application_state_handler()
 {
     if(DOUBLE_CLICK_RELEASED == button_state) {
-        if(MODE_NUMBER <= ++app_state) {
-            app_state = DEFAULT_MODE;
+        if(MODE_NUMBER <= ++state) {
+            state = DEFAULT_MODE;
         }
     }
 
-    switch (app_state) {
+    switch (state) {
         case DEFAULT_MODE: //скорее всгео можно убрать
             status_indicator_step = 0; 
             pwm_values.channel_0 = PWM_DEFAULT_MODE_IND_INC; 
@@ -35,33 +35,33 @@ void application_state_handler()
 
 void process_hsv_state(struct hsv *color)
 {
-    if(SINGLE_CLICK_PRESSED == button_state) {
-        switch(app_state) {
+    if(LONG_CLICK_PRESSED == button_state) {
+        switch(state) {
             case HUE_MODE:
                 set_hue(color);
                 break;
             case SATURATION_MODE:
-                if(saturation_direction) {
+                if(saturation_increases) {
                     if(MAX_SATURATION <= ++color->saturation) {
-                        saturation_direction = false;
+                        saturation_increases = false;
                     }
                 }
                 else {
                     if(0 >= --color->saturation) {
-                        saturation_direction = true;
+                        saturation_increases = true;
                     }
                 }
                 
                 break;
             case VALUE_MODE: 
-                if(brightness_direction) {
+                if(brightness_increases) {
                     if(MAX_SATURATION <= ++color->brightness) {
-                        brightness_direction = false;
+                        brightness_increases = false;
                     }
                 }
                 else {
                     if(0 >= --color->brightness) {
-                        brightness_direction = true;
+                        brightness_increases = true;
                     }
                 }
                 break;

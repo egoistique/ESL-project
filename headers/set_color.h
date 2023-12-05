@@ -2,8 +2,8 @@
 #include "states.h"
 #include "pwm.h"
 
-extern bool saturation_direction;
-extern bool brightness_direction;
+extern bool saturation_increases;
+extern bool brightness_increases;
 
 void application_state_handler();
 void process_hsv_state(struct hsv *color);
