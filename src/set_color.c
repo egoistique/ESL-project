@@ -2,68 +2,117 @@
 #include "pwm.h"
 #include "hsv.h"
 
- bool saturation_increases = true;
- bool brightness_increases = true;
+bool saturation_increases = true;
+bool value_increases = true;
+int high_value_yellow_led = 1200;
+volatile uint16_t yellow_led_step = 0;
+    static bool is_increasing = true;
 
-void application_state_handler()
+void pwm_handler(nrfx_pwm_evt_type_t event_type)
+{
+    yellow_led_set_state();
+    rgb_led_set_state(&hsv_color);
+}
+
+void yellow_led_set_state(void)
+{
+    if (yellow_led_step > 0) {
+        if (is_increasing) {
+            increase_yellow_led();
+        } else {
+            decrease_yellow_led();
+        }
+    }
+}
+
+void increase_yellow_led(void)
+{
+    if (pwm_values.channel_0 + yellow_led_step <= high_value_yellow_led) {
+        pwm_values.channel_0 += yellow_led_step;
+    } else {
+        pwm_values.channel_0 = high_value_yellow_led;
+        is_increasing = false;
+    }
+}
+
+void decrease_yellow_led(void)
+{
+    if (pwm_values.channel_0 - yellow_led_step >= 0) {
+        pwm_values.channel_0 -= yellow_led_step;
+    } else {
+        pwm_values.channel_0 = 0;
+        is_increasing = true;
+    }
+}
+
+void mode_state_handler()
 {
     if(DOUBLE_CLICK_RELEASED == button_state) {
-        if(MODE_NUMBER <= ++state) {
-            state = DEFAULT_MODE;
-        }
+        state = (state != VALUE_MODE) ? (state + 1) : DEFAULT_MODE;
     }
 
     switch (state) {
-        case DEFAULT_MODE: //скорее всгео можно убрать
-            status_indicator_step = 0; 
-            pwm_values.channel_0 = PWM_DEFAULT_MODE_IND_INC; 
+        case DEFAULT_MODE: 
+            yellow_led_step = 0; 
+            pwm_values.channel_0 = PWM_DEFAULT_MODE; 
             break;
         case HUE_MODE: 
-            status_indicator_step = PWM_HUE_MODE_IND_INC;
+            yellow_led_step = PWM_HUE_MODE;
             break;
         case SATURATION_MODE: 
-            status_indicator_step = PWM_SATURATION_MODE_IND_INC; 
+            yellow_led_step = PWM_SATURATION_MODE; 
             break;
         case VALUE_MODE: 
-            status_indicator_step = 0; 
-            pwm_values.channel_0 = PWM_VALUE_MODE_IND_INC; 
+            yellow_led_step = 0; 
+            pwm_values.channel_0 = PWM_VALUE_MODE; 
             break;
         default:
             break;
     }
 }
 
-void process_hsv_state(struct hsv *color)
-{
-    if(LONG_CLICK_PRESSED == button_state) {
-        switch(state) {
+
+void set_saturation(struct hsv *color) {
+    if (saturation_increases) {
+        if (MAX_SATURATION <= ++color->saturation) {
+            saturation_increases = false;
+        }
+    } else {
+        if (0 >= --color->saturation) {
+            saturation_increases = true;
+        }
+    }
+}
+
+void set_hue(struct hsv *color){
+    if(360 <= ++color->hue) {
+        color->hue = 0;
+     }
+}
+
+void set_value(struct hsv *color) {
+    if (value_increases) {
+        if (MAX_SATURATION <= ++color->value) {
+            value_increases = false;
+        }
+    } else {
+        if (0 >= --color->value) {
+            value_increases = true;
+        }
+    }
+}
+
+void rgb_led_set_state(struct hsv *color) {
+    if (LONG_CLICK_PRESSED == button_state) {
+        switch (state) {
             case HUE_MODE:
                 set_hue(color);
                 break;
             case SATURATION_MODE:
-                if(saturation_increases) {
-                    if(MAX_SATURATION <= ++color->saturation) {
-                        saturation_increases = false;
-                    }
-                }
-                else {
-                    if(0 >= --color->saturation) {
-                        saturation_increases = true;
-                    }
-                }
-                
+                set_saturation(color);
                 break;
-            case VALUE_MODE: 
-                if(brightness_increases) {
-                    if(MAX_SATURATION <= ++color->brightness) {
-                        brightness_increases = false;
-                    }
-                }
-                else {
-                    if(0 >= --color->brightness) {
-                        brightness_increases = true;
-                    }
-                }
+            case VALUE_MODE:
+                set_value(color);
                 break;
             default:
                 break;
@@ -71,7 +120,6 @@ void process_hsv_state(struct hsv *color)
     }
 
     union rgb the_color = { .components = {0} };
-
     hsv_to_rgb(hsv_color, &the_color);
 
     pwm_values.channel_1 = the_color.red;
@@ -79,30 +127,7 @@ void process_hsv_state(struct hsv *color)
     pwm_values.channel_3 = the_color.blue;
 }
 
-void custom_pwm_handler(nrfx_pwm_evt_type_t event_type)
-{
-    static bool status_indicator_direction = true;
 
-    if(status_indicator_step) {
-        if(status_indicator_direction) {
-            if(1200 >= (pwm_values.channel_0 + status_indicator_step)) {
-                pwm_values.channel_0 += status_indicator_step;
-            }
-            else {
-                pwm_values.channel_0 = 1200; 
-                status_indicator_direction = false;
-            }
-        }
-        else {
-            if(0 <= (pwm_values.channel_0 - status_indicator_step)) {
-                pwm_values.channel_0 -= status_indicator_step;
-            }
-            else {
-                pwm_values.channel_0 = 0;  
-                status_indicator_direction = true;
-            }
-        }
-    }
-    process_hsv_state(&hsv_color);
-}
+
+
 

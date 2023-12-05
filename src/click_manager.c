@@ -24,7 +24,7 @@ void double_click_handler(void *context)
     }
 
     click_num = 0;
-    application_state_handler();
+    mode_state_handler();
 }
 
 void debounce_handler(void *context)

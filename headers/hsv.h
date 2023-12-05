@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <stdint.h>
 
-#define MAX_BRIGHTNESS 100
+#define MAX_VALUE 100
 #define MAX_SATURATION 100
 
 struct hsv hsv_color;
@@ -16,7 +16,7 @@ union rgb {
 };
 
 void hsv_to_rgb(struct hsv color, union rgb *rgb_color);
-void set_hue(struct hsv *color);
+//void set_hue(struct hsv *color);
 
 
 

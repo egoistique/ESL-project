@@ -19,7 +19,7 @@ int main(void)
     lfclk_request();
     timers_init();
 
-    nrfx_pwm_init(&pwm_inst, &pwm_config, custom_pwm_handler);
+    nrfx_pwm_init(&pwm_inst, &pwm_config, pwm_handler);
     nrfx_pwm_simple_playback(&pwm_inst, &pwm_sequence, PWM_PLAYBACK_COUNT, NRFX_PWM_FLAG_LOOP);
 
     while (true)

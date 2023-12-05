@@ -8,7 +8,6 @@ enum mode_state {
     HUE_MODE,
     SATURATION_MODE,
     VALUE_MODE,
-    MODE_NUMBER,
 };
 
 extern volatile enum button_state {
@@ -22,7 +21,7 @@ extern volatile enum button_state {
 struct hsv{
     uint16_t hue;          
     uint8_t saturation; 
-    uint8_t brightness; 
+    uint8_t value; 
 };
 
 extern enum mode_state state;
