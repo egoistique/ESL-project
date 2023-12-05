@@ -25,8 +25,6 @@ struct hsv{
     uint8_t brightness; 
 };
 
-
-extern uint32_t main_button_pin;
 extern enum hsv_mode_state_t app_state;
 
 #endif 

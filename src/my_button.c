@@ -6,8 +6,6 @@
 #include "pwm.h"
 #include "hsv.h"
 
-uint32_t main_button_pin = BUTTON_PIN;
-
 void configure_button(int pin)
 {
     nrf_gpio_cfg_input(pin, NRF_GPIO_PIN_PULLUP);
