@@ -5,9 +5,9 @@
  bool saturation_direction = true;
  bool brightness_direction = true;
 
-void application_state_handler(const custom_button_context_t *button)
+void application_state_handler()
 {
-    if(DOUBLE_CLICK_RELEASED == button->button_state) {
+    if(DOUBLE_CLICK_RELEASED == button_state) {
         if(MODE_NUMBER <= ++app_state) {
             app_state = DEFAULT_MODE;
         }
@@ -33,9 +33,9 @@ void application_state_handler(const custom_button_context_t *button)
     }
 }
 
-void process_hsv_state(struct hsv *color, struct hsv_control_state *state)
+void process_hsv_state(struct hsv *color)
 {
-    if(SINGLE_CLICK_PRESSED == state->button->button_state) {
+    if(SINGLE_CLICK_PRESSED == button_state) {
         switch(app_state) {
             case HUE_MODE:
                 set_hue(color);
@@ -103,6 +103,6 @@ void custom_pwm_handler(nrfx_pwm_evt_type_t event_type)
             }
         }
     }
-    process_hsv_state(&hsv_color, &hsv_ctrl_state_ctx);
+    process_hsv_state(&hsv_color);
 }
 

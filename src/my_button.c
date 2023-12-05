@@ -10,8 +10,6 @@ custom_button_context_t main_button = {
     .pin = BUTTON_PIN
 };
 
-struct hsv_control_state hsv_ctrl_state_ctx = { .button = &main_button };
-
 void configure_button(int pin)
 {
     nrf_gpio_cfg_input(pin, NRF_GPIO_PIN_PULLUP);
