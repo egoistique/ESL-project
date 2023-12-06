@@ -10,7 +10,6 @@
 
 void led_clear(int32_t pin);
 void led_set(int32_t pin);
-
 void all_leds_off(unsigned int num, const int32_t leds[num]);
 void configure_led(int pin);
 void blink(int led);

@@ -30,7 +30,6 @@ void smooth_blink(int32_t led, int32_t duration_ms, volatile bool * enable)
                 break;
             }
         }
-
         led_clear(led);
         nrfx_systick_get(&state);
         wait_microseconds(current_duty_cycle);

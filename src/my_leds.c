@@ -34,7 +34,6 @@ void blink(int led)
     nrf_delay_ms(DELAY);  
 }
 
-
 void configure_leds(int num, const int32_t pins[num]) 
 {
     for(int i = 0; i < num; i++) {
