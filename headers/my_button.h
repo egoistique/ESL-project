@@ -4,8 +4,6 @@
 #include "nrfx_gpiote.h"
 #include "nrfx_pwm.h"
 #define BUTTON_PIN NRF_GPIO_PIN_MAP(1, 6)
-#define DEBOUNCE_TIME_MS 10
-#define DOUBLE_CLICK_TIME_MS 1000
 
 extern volatile bool blink_enable;
 extern volatile bool button_long_pressed;

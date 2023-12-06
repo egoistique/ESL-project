@@ -4,9 +4,9 @@
 
 bool saturation_increases = true;
 bool value_increases = true;
-int high_value_yellow_led = 1200;
+int high_value_yellow_led = 1000;
 volatile uint16_t yellow_led_step = 0;
-    static bool is_increasing = true;
+static bool is_increasing = true;
 
 void pwm_handler(nrfx_pwm_evt_type_t event_type)
 {
@@ -45,16 +45,11 @@ void decrease_yellow_led(void)
     }
 }
 
-void mode_state_handler()
-{
-    if(DOUBLE_CLICK_RELEASED == button_state) {
-        state = (state != VALUE_MODE) ? (state + 1) : DEFAULT_MODE;
-    }
-
-    switch (state) {
+void yellow_led_sync(){
+    switch (mode) {
         case DEFAULT_MODE: 
             yellow_led_step = 0; 
-            pwm_values.channel_0 = PWM_DEFAULT_MODE; 
+            pwm_values.channel_0 = 0; 
             break;
         case HUE_MODE: 
             yellow_led_step = PWM_HUE_MODE;
@@ -71,40 +66,54 @@ void mode_state_handler()
     }
 }
 
+void set_mode()
+{
+    if(DOUBLE_CLICK == button_state) {
+        mode = (mode != VALUE_MODE) ? (mode + 1) : DEFAULT_MODE;
+    }
+    
+    yellow_led_sync();
+}
+
+void set_hue(struct hsv *color){
+    color->hue++;
+    if(color->hue >= 360) {
+        color->hue = 0;
+     }
+}
 
 void set_saturation(struct hsv *color) {
     if (saturation_increases) {
-        if (MAX_SATURATION <= ++color->saturation) {
+        color->saturation++;
+        if (color->saturation >= MAX_SATURATION) {
             saturation_increases = false;
         }
     } else {
-        if (0 >= --color->saturation) {
+        color->saturation--;
+        if (color->saturation <= 0) {
             saturation_increases = true;
         }
     }
 }
 
-void set_hue(struct hsv *color){
-    if(360 <= ++color->hue) {
-        color->hue = 0;
-     }
-}
 
 void set_value(struct hsv *color) {
     if (value_increases) {
-        if (MAX_SATURATION <= ++color->value) {
+        color->value++;
+        if (color->value >= MAX_VALUE) {
             value_increases = false;
         }
     } else {
-        if (0 >= --color->value) {
+        color->value--;
+        if (color->value <= 0) {
             value_increases = true;
         }
     }
 }
 
 void rgb_led_set_state(struct hsv *color) {
-    if (LONG_CLICK_PRESSED == button_state) {
-        switch (state) {
+    if (LONG_CLICK == button_state) {
+        switch (mode) {
             case HUE_MODE:
                 set_hue(color);
                 break;
@@ -119,9 +128,9 @@ void rgb_led_set_state(struct hsv *color) {
         }
     }
 
-    union rgb the_color = { .components = {0} };
-    hsv_to_rgb(hsv_color, &the_color);
-
+    struct RGB the_color;
+    hsv2rgb(hsv_color, &the_color);
+   
     pwm_values.channel_1 = the_color.red;
     pwm_values.channel_2 = the_color.green;
     pwm_values.channel_3 = the_color.blue;

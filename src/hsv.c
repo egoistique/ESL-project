@@ -5,65 +5,69 @@
 #include "pwm.h"
 #include "states.h"
 
+#define PWM_MAX 1000
 
-#define PWM_COUNT_TOP 1200
-#define PWM_COLOR_STEP (PWM_COUNT_TOP / 120.0f)
-
-#define MAX_VAL_PTR(a, b) ((*(a) > *(b)) ? a : b)
-
- struct hsv hsv_color = {
-    .hue = 100,
+struct hsv hsv_color = {
+    .hue = 292,
     .saturation = 100,
     .value = 100
 };
 
-
-// void set_hue(struct hsv *color){
-//     if(360 <= ++color->hue) {
-//         color->hue = 0;
-//      }
-// }
-
-void hsv_to_rgb(struct hsv color, union rgb *rgb_color)
+void hsv2rgb(struct hsv color_hsv, struct RGB *color_rgb)
 {
-    float s = color.saturation / 100.0f;
-    float v = color.value / 100.0f;
+    // Convert saturation and value to floats
+    float saturation = color_hsv.saturation / 100.0f;
+    float value = color_hsv.value / 100.0f;
 
-    float c = s * v;
+    // Calculate chroma
+    float chroma = saturation * value;
+    float a = color_hsv.hue / 60.0;
+    float x = chroma * (1 - fabs(fmod((a), 2.0) - 1));
+    float m = value - chroma;
 
-    float x = c * (1 - fabs(fmod((color.hue / 60.0), 2.0) - 1));
-
-    float m = v - c;
-
+    // Initialize r, g, b to 0
     float r = 0;
     float g = 0;
     float b = 0;
 
-    switch (color.hue / 60) {
+    // Determine which hue range to use
+    int hue_range = color_hsv.hue / 60;
+
+    // Set r, g, b based on hue range
+    switch (hue_range) {
         case 0: 
-            r = c; g = x; b = 0;
+            r = chroma; 
+            g = x; 
             break;
         case 1: 
-            r = x; g = c; b = 0;
+            r = x; 
+            g = chroma; 
             break;
         case 2:
-            r = 0; g = c; b = x;
+            g = chroma; 
+            b = x; 
             break;
         case 3:
-            r = 0; g = x; b = c;
+            g = x; 
+            b = chroma; 
             break;
         case 4:
-            r = x; g = 0; b = c;
+            r = x; 
+            b = chroma; 
             break;
         case 5:
-            r = c; g = 0; b = x;
+            r = chroma; 
+            b = x; 
             break;
         default:
             break;
     }
 
-    rgb_color->red = (r + m) * PWM_COUNT_TOP;
-    rgb_color->green = (g + m) * PWM_COUNT_TOP;
-    rgb_color->blue = (b + m) * PWM_COUNT_TOP;
+    // Set RGB values and scale by PWM_MAX
+    color_rgb->red = (r + m) * PWM_MAX;
+    color_rgb->green = (g + m) * PWM_MAX;
+    color_rgb->blue = (b + m) * PWM_MAX;
 }
+
+
 

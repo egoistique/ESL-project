@@ -1,9 +1,9 @@
 #include "nrfx_gpiote.h"
 
 #define DEBOUNCE_TIME_MS 10
-#define DOUBLE_CLICK_TIME_MS 1000
+#define DOUBLE_CLICK_TIME_MS 500
 
-volatile unsigned int click_num;
+volatile unsigned int click_number;
 
 void double_click_handler(void *context);
 void debounce_handler(void *context);

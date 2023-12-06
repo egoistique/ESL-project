@@ -9,9 +9,10 @@ extern volatile uint16_t yellow_led_step;
 
 int high_value_yellow_led;
 
-void mode_state_handler();
+void set_mode();
 void rgb_led_set_state(struct hsv *color);
 void pwm_handler(nrfx_pwm_evt_type_t event_type);
+void yellow_led_sync();
 void yellow_led_set_state(void);
 
 void increase_yellow_led(void);

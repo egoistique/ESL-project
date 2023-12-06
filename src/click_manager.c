@@ -8,34 +8,36 @@
 APP_TIMER_DEF(debounce_timer);
 APP_TIMER_DEF(double_click_timer);
 
+bool double_click_after_deounce = false;
 
 void double_click_handler(void *context)
 {
     if(button_pressed(BUTTON_PIN)) {
-        if(click_num == 1) {
-            button_state = LONG_CLICK_PRESSED;
+        if(click_number == 1) {
+            button_state = LONG_CLICK;
         }
     } else {
-        if(LONG_CLICK_PRESSED == button_state) {
-            button_state = LONG_CLICK_RELEASED;
-        }else if(DOUBLE_CLICK_PRESSED == button_state){
-            button_state = DOUBLE_CLICK_RELEASED;
+         if(LONG_CLICK == button_state) {
+            button_state = DEFAULT;
+         }else if (double_click_after_deounce) {
+            button_state = DOUBLE_CLICK;
         }
     }
 
-    click_num = 0;
-    mode_state_handler();
+    click_number = 0;
+    double_click_after_deounce = false;
+    set_mode();
 }
 
 void debounce_handler(void *context)
 {
     if(button_pressed(BUTTON_PIN)) { 
-        click_num++;
+        click_number++;
     }
 
-    if(click_num == 2) {
-        click_num = 0;
-        button_state = DOUBLE_CLICK_PRESSED;
+    if(click_number == 2) {
+        double_click_after_deounce = true;
+        click_number = 0;
     }
 }
 

@@ -25,6 +25,7 @@
         "set_color.h": "c",
         "pwm.h": "c",
         "math.h": "c",
-        "click_manager.h": "c"
+        "click_manager.h": "c",
+        "stdint.h": "c"
     }
 }

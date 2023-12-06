@@ -11,11 +11,9 @@ enum mode_state {
 };
 
 extern volatile enum button_state {
-    DEFAULT_UNKNOWN,
-    LONG_CLICK_PRESSED,
-    DOUBLE_CLICK_PRESSED,
-    LONG_CLICK_RELEASED,
-    DOUBLE_CLICK_RELEASED
+    DEFAULT,
+    DOUBLE_CLICK,
+    LONG_CLICK
 } button_state;
 
 struct hsv{
@@ -24,7 +22,7 @@ struct hsv{
     uint8_t value; 
 };
 
-extern enum mode_state state;
+extern enum mode_state mode;
 
 #endif 
 
