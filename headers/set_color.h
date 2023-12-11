@@ -6,7 +6,6 @@ extern bool saturation_increases;
 extern bool value_increases;
 extern volatile uint16_t yellow_led_step;
 
-
 int high_value_yellow_led;
 
 void set_mode();

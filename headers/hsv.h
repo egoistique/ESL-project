@@ -1,10 +1,9 @@
 #include <stdint.h>
 #include <stdint.h>
+#include "states.h"
 
 #define MAX_VALUE 100
 #define MAX_SATURATION 100
-
-struct hsv hsv_color;
 
 struct RGB {
     uint16_t red;

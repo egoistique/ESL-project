@@ -9,6 +9,7 @@ APP_TIMER_DEF(debounce_timer);
 APP_TIMER_DEF(double_click_timer);
 
 bool double_click_after_deounce = false;
+volatile unsigned int click_number = 0;
 
 void double_click_handler(void *context)
 {

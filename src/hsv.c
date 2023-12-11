@@ -7,18 +7,11 @@
 
 #define PWM_MAX 1000
 
-struct hsv hsv_color = {
-    .hue = 292,
-    .saturation = 100,
-    .value = 100
-};
-
 void hsv2rgb(struct hsv color_hsv, struct RGB *color_rgb)
 {
     // Convert saturation and value to floats
     float saturation = color_hsv.saturation / 100.0f;
     float value = color_hsv.value / 100.0f;
-
     // Calculate chroma
     float chroma = saturation * value;
     float a = color_hsv.hue / 60.0;

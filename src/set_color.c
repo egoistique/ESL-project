@@ -8,6 +8,12 @@ int high_value_yellow_led = 1000;
 volatile uint16_t yellow_led_step = 0;
 static bool is_increasing = true;
 
+struct hsv hsv_color = {
+    .hue = 292,
+    .saturation = 100,
+    .value = 100
+};
+
 void pwm_handler(nrfx_pwm_evt_type_t event_type)
 {
     yellow_led_set_state();

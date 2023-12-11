@@ -22,6 +22,8 @@ struct hsv{
     uint8_t value; 
 };
 
+extern struct hsv hsv_color;
+
 extern enum mode_state mode;
 
 #endif 

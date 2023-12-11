@@ -3,8 +3,6 @@
 #define DEBOUNCE_TIME_MS 10
 #define DOUBLE_CLICK_TIME_MS 500
 
-volatile unsigned int click_number;
-
 void double_click_handler(void *context);
 void debounce_handler(void *context);
 void gpio_handler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action);
