@@ -26,6 +26,9 @@
         "pwm.h": "c",
         "math.h": "c",
         "click_manager.h": "c",
-        "stdint.h": "c"
+        "stdint.h": "c",
+        "nrfx_nvmc.h": "c",
+        "nrf_dfu_types.h": "c",
+        "app_util.h": "c"
     }
 }

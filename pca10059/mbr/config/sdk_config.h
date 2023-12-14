@@ -3207,6 +3207,8 @@
 #define PWM_DEFAULT_CONFIG_TOP_VALUE 1200
 #define PWM_DEFAULT_CONFIG_LOAD_MODE 2
 
+#define NRFX_NVMC_ENABLED 1
+
 // </h> 
 //==========================================================
 

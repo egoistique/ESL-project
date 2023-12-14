@@ -1,6 +1,7 @@
 
 #include "states.h"
 #include "pwm.h"
+#include "nrfx_nvmc.h"
 
 extern bool saturation_increases;
 extern bool value_increases;
