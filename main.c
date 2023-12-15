@@ -22,13 +22,11 @@ int main(void)
     timers_init();
 
     struct RGB the_color;
-    //вытащить данные из памяти
 
-    save_data_to_nvm(&hsv_color);
+    //save_data_to_nvm(&hsv_color);
     read_data_from_nvm(&hsv_color);
 
     hsv2rgb(hsv_color, &the_color);
-    //загнать в каналы цвет
     pwm_values.channel_1 = the_color.red;
     pwm_values.channel_2 = the_color.green;
     pwm_values.channel_3 = the_color.blue;

@@ -3,7 +3,6 @@
 #include "hsv.h"
 #include "nvmc.h"
 
-
 bool saturation_increases = true;
 bool value_increases = true;
 int high_value_yellow_led = 1000;
@@ -21,8 +20,7 @@ void pwm_handler(nrfx_pwm_evt_type_t event_type)
 {
     yellow_led_set_state();
     if(DEFAULT_MODE == mode) {
-        //save_obj(&hsv_color, sizeof(hsv_color));
-        //save_obj();
+        save_data_to_nvm(&hsv_color);
     }
     rgb_led_set_state(&hsv_color);
 }
