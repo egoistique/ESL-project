@@ -15,13 +15,9 @@ struct hsv hsv_color = {
     .value = 100
 };
 
-
 void pwm_handler(nrfx_pwm_evt_type_t event_type)
 {
-    yellow_led_set_state();
-    if(DEFAULT_MODE == mode) {
-        save_data_to_nvm(&hsv_color);
-    }
+    yellow_led_set_state();    
     rgb_led_set_state(&hsv_color);
 }
 
@@ -80,7 +76,11 @@ void yellow_led_sync(){
 void set_mode()
 {
     if(DOUBLE_CLICK == button_state) {
+        NRF_LOG_INFO("DOUBLE CLICKS");
         mode = (mode != VALUE_MODE) ? (mode + 1) : DEFAULT_MODE;
+        if(mode == DEFAULT_MODE) {
+            save_data_to_nvm(&hsv_color);
+        }
     }
     
     yellow_led_sync();
