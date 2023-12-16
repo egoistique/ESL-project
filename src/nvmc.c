@@ -11,6 +11,7 @@ void save_data_to_nvm(struct hsv *data) {
     nrfx_nvmc_words_write(f_addr, k, 3);
 }
 
+
 void read_data_from_nvm(struct hsv *data) {
     uint32_t f_addr = 0x0007f000;
     uint32_t *p_addr = (uint32_t *)f_addr;
