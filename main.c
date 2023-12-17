@@ -22,7 +22,12 @@
 
 #define READ_SIZE 1
 
+#define MAX_COMMAND_LENGTH 20
+
 static char m_rx_buffer[READ_SIZE];
+
+char commandBuffer[MAX_COMMAND_LENGTH];
+size_t commandLength = 0;
 
 static void usb_ev_handler(app_usbd_class_inst_t const * p_inst,
                            app_usbd_cdc_acm_user_event_t event);
@@ -46,28 +51,34 @@ APP_USBD_CDC_ACM_GLOBAL_DEF(usb_cdc_acm,
 
 
 
+void checkCommand(const char *commandBuffer, size_t length) {
+    const char *helpCommand = "help";
+    if (length >= strlen(helpCommand) && strncmp(commandBuffer, helpCommand, strlen(helpCommand)) == 0) {
+        NRF_LOG_INFO("HELP COMMAND");
+        // если введена команда "help", выводим сообщение
+        app_usbd_cdc_acm_write(&usb_cdc_acm, "i can help\r\n", 12);
+       
+    }
+}
+
 static void usb_ev_handler(app_usbd_class_inst_t const * p_inst,
                            app_usbd_cdc_acm_user_event_t event)
 {
     switch (event) {
     case APP_USBD_CDC_ACM_USER_EVT_PORT_OPEN: {
         ret_code_t ret;
-        // bsp_board_led_on(0);
         ret = app_usbd_cdc_acm_read(&usb_cdc_acm, m_rx_buffer, READ_SIZE);
         UNUSED_VARIABLE(ret);
         break;
     }
     case APP_USBD_CDC_ACM_USER_EVT_PORT_CLOSE: {
-        // bsp_board_led_off(0);
         break;
     }
     case APP_USBD_CDC_ACM_USER_EVT_TX_DONE: {
         NRF_LOG_INFO("tx done");
-        // bsp_board_led_invert(1);
         break;
     }
     case APP_USBD_CDC_ACM_USER_EVT_RX_DONE: {
-        // bsp_board_led_invert(2);
         ret_code_t ret;
         do {
             /*Get amount of data transfered*/
@@ -78,8 +89,21 @@ static void usb_ev_handler(app_usbd_class_inst_t const * p_inst,
              * block execution, and if we have a lot of characters to read and
              * write, some characters can be missed.
              */
+            if (commandLength < MAX_COMMAND_LENGTH - 1) {
+                commandBuffer[commandLength] = m_rx_buffer[0];            
+                commandLength++;
+                commandBuffer[commandLength] = '\0'; // Завершаем строку нулевым символом
+            }
+
+
             if (m_rx_buffer[0] == '\r' || m_rx_buffer[0] == '\n') {
                 ret = app_usbd_cdc_acm_write(&usb_cdc_acm, "\r\n", 2);
+
+                checkCommand(commandBuffer, commandLength);
+
+                // Очищаем буфер команды
+                memset(commandBuffer, 0, sizeof(commandBuffer));
+                commandLength = 0;
             }
             else {
                 ret = app_usbd_cdc_acm_write(&usb_cdc_acm,
@@ -137,10 +161,6 @@ int main(void)
 
 
     while(true) {
-        // while (app_usbd_event_queue_process()) {
-        //     /* Nothing to do */
-        // }
-
         LOG_BACKEND_USB_PROCESS();
         NRF_LOG_PROCESS();
     }   
