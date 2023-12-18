@@ -7,6 +7,49 @@
 
 #define PWM_MAX 1000
 
+
+void rgb2hsv(struct hsv *hsv_color, struct RGB *color_rgb) {
+    // Нормализация значений R, G, B
+    float red = color_rgb->red / (float)PWM_MAX;
+    float green = color_rgb->green / (float)PWM_MAX;
+    float blue = color_rgb->blue / (float)PWM_MAX;
+
+    float max_color = fmax(red, fmax(green, blue));
+    float min_color = fmin(red, fmin(green, blue));
+
+    // Вычисление значения яркости (value)
+    hsv_color->value = max_color * 100;
+
+    // Если цвета равны, значит оттенок (hue) равен 0
+    if (max_color == min_color) {
+        hsv_color->hue = 0;
+        hsv_color->saturation = 0;
+        return;
+    }
+
+    // Вычисление насыщенности (saturation)
+    float delta = max_color - min_color;
+    hsv_color->saturation = (delta / max_color) * 100;
+
+    // Вычисление оттенка (hue)
+    float hue;
+    if (max_color == red) {
+        hue = 60 * fmod(((green - blue) / delta), 6);
+    } else if (max_color == green) {
+        hue = 60 * (((blue - red) / delta) + 2);
+    } else {
+        hue = 60 * (((red - green) / delta) + 4);
+    }
+
+    // Обработка отрицательного значения оттенка
+    if (hue < 0) {
+        hue += 360;
+    }
+
+    hsv_color->hue = hue;
+}
+
+
 void hsv2rgb(struct hsv color_hsv, struct RGB *color_rgb)
 {
     // Convert saturation and value to floats

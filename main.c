@@ -50,10 +50,18 @@ APP_USBD_CDC_ACM_GLOBAL_DEF(usb_cdc_acm,
                             APP_USBD_CDC_COMM_PROTOCOL_NONE);
 
 
-void set_rgb_color(int red, int green, int blue){
-    pwm_values.channel_1 = red;
-    pwm_values.channel_2 = green;
-    pwm_values.channel_3 = blue;
+void set_rgb_color(int red, int green, int blue, struct hsv *hsv_color){
+    struct RGB the_color;
+
+    the_color.red = red;
+    the_color.green = green;
+    the_color.blue = blue;
+
+    rgb2hsv(hsv_color, &the_color);
+
+    pwm_values.channel_1 = the_color.red;
+    pwm_values.channel_2 = the_color.green;
+    pwm_values.channel_3 = the_color.blue;
 }
 
 void set_hsv_color(int h, int s, int v, struct hsv *hsv_color){
@@ -83,7 +91,7 @@ void checkCommand(const char *commandBuffer, size_t length) {
         if (sscanf(commandBuffer, "RGB %d %d %d", &red, &green, &blue) == 3) {
             if (red >= 1 && red <= 255 && green >= 1 && green <= 255 && blue >= 1 && blue <= 255) {
                 app_usbd_cdc_acm_write(&usb_cdc_acm, "you set rgb values\r\n", 20);
-                set_rgb_color(red, green, blue);
+                set_rgb_color(red, green, blue, &hsv_color);
 
             }
         }

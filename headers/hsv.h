@@ -11,6 +11,7 @@ struct RGB {
     uint16_t blue;
 };
 
+void rgb2hsv(struct hsv *hsv_color, struct RGB *color_rgb);
 void hsv2rgb(struct hsv color_hsv, struct RGB *color_rgb);
 
 
