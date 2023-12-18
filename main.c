@@ -176,8 +176,6 @@ void logs_init()
     NRF_LOG_DEFAULT_BACKENDS_INIT();
 }
 
-
-
 int main(void)
 {
     logs_init();
