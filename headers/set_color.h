@@ -33,3 +33,6 @@ void decrease_yellow_led(void);
 void set_hue(struct hsv *color);
 void set_saturation(struct hsv *color);
 void set_value(struct hsv *color);
+
+void set_rgb_color(int red, int green, int blue, struct hsv *hsv_color);
+void set_hsv_color(int h, int s, int v, struct hsv *hsv_color);

@@ -147,7 +147,33 @@ void rgb_led_set_state(struct hsv *color) {
     pwm_values.channel_3 = the_color.blue;
 }
 
+void set_rgb_color(int red, int green, int blue, struct hsv *hsv_color){
+    struct RGB the_color;
 
+    the_color.red = red;
+    the_color.green = green;
+    the_color.blue = blue;
+
+    rgb2hsv(hsv_color, &the_color);
+
+    pwm_values.channel_1 = the_color.red;
+    pwm_values.channel_2 = the_color.green;
+    pwm_values.channel_3 = the_color.blue;
+}
+
+void set_hsv_color(int h, int s, int v, struct hsv *hsv_color){
+    struct RGB the_color;
+
+    hsv_color->hue = h;
+    hsv_color->saturation = s;
+    hsv_color->value = v;
+
+    hsv2rgb(*hsv_color, &the_color);
+    pwm_values.channel_1 = the_color.red;
+    pwm_values.channel_2 = the_color.green;
+    pwm_values.channel_3 = the_color.blue;
+
+}
 
 
 

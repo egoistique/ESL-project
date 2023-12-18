@@ -48,33 +48,6 @@ APP_USBD_CDC_ACM_GLOBAL_DEF(usb_cdc_acm,
                             APP_USBD_CDC_COMM_PROTOCOL_NONE);
 
 
-void set_rgb_color(int red, int green, int blue, struct hsv *hsv_color){
-    struct RGB the_color;
-
-    the_color.red = red;
-    the_color.green = green;
-    the_color.blue = blue;
-
-    rgb2hsv(hsv_color, &the_color);
-
-    pwm_values.channel_1 = the_color.red;
-    pwm_values.channel_2 = the_color.green;
-    pwm_values.channel_3 = the_color.blue;
-}
-
-void set_hsv_color(int h, int s, int v, struct hsv *hsv_color){
-    struct RGB the_color;
-
-    hsv_color->hue = h;
-    hsv_color->saturation = s;
-    hsv_color->value = v;
-
-    hsv2rgb(*hsv_color, &the_color);
-    pwm_values.channel_1 = the_color.red;
-    pwm_values.channel_2 = the_color.green;
-    pwm_values.channel_3 = the_color.blue;
-
-}
 
 void checkCommand(const char *commandBuffer, size_t length) {
     const char *helpCommand = "help";
@@ -89,18 +62,23 @@ void checkCommand(const char *commandBuffer, size_t length) {
 
     const char *messageHSV = "HSV values should be within these limits: hue [0...360], staturation and value [0...100]\r\n";
 
-    const char *messageSetRGB = "You set rgb values\r\n";
-    const char *messageSetHSV = "You set hsv values\r\n";
+    char messageSetRGB[50];
+    char messageSetHSV[50];
 
 
-    if (length >= strlen(helpCommand) && strncmp(commandBuffer, helpCommand, strlen(helpCommand)) == 0) {
+    if (length >= strlen(helpCommand) && strncmp(commandBuffer, helpCommand, strlen(helpCommand)) == 0) 
+    {
         NRF_LOG_INFO("HELP COMMAND");
         app_usbd_cdc_acm_write(&usb_cdc_acm, messageHelp, strlen(messageHelp));
-    } else if (length >= strlen(rgbCommand) && strncmp(commandBuffer, rgbCommand, strlen(rgbCommand)) == 0) {
+    } else if (length >= strlen(rgbCommand) && strncmp(commandBuffer, rgbCommand, strlen(rgbCommand)) == 0) 
+    {
         NRF_LOG_INFO("RGB COMMAND");
         int red, green, blue;
-        if (sscanf(commandBuffer, "RGB %d %d %d", &red, &green, &blue) == 3) {
-            if (red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255) {
+        if (sscanf(commandBuffer, "RGB %d %d %d", &red, &green, &blue) == 3) 
+        {
+            if (red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255) 
+            {
+                sprintf(messageSetRGB, "Color set to R=%d G=%d B=%d\r\n", red, green, blue);
                 app_usbd_cdc_acm_write(&usb_cdc_acm, messageSetRGB, strlen(messageSetRGB));
                 set_rgb_color(red, green, blue, &hsv_color);
 
@@ -108,14 +86,19 @@ void checkCommand(const char *commandBuffer, size_t length) {
                 app_usbd_cdc_acm_write(&usb_cdc_acm, messageRGB, strlen(messageRGB));
             }
         }
-    } else if (length >= strlen(hsvCommand) && strncmp(commandBuffer, hsvCommand, strlen(hsvCommand)) == 0) {
+    } else if (length >= strlen(hsvCommand) && strncmp(commandBuffer, hsvCommand, strlen(hsvCommand)) == 0) 
+    {
         NRF_LOG_INFO("HSV COMMAND");
         int hue, saturation, value;
-        if (sscanf(commandBuffer, "HSV %d %d %d", &hue, &saturation, &value) == 3) {
-            if (hue >= 0 && hue <= 360 && saturation >= 0 && saturation <= 100 && value >= 0 && value <= 100) {
+        if (sscanf(commandBuffer, "HSV %d %d %d", &hue, &saturation, &value) == 3) 
+        {
+            if (hue >= 0 && hue <= 360 && saturation >= 0 && saturation <= 100 && value >= 0 && value <= 100) 
+            {
+                sprintf(messageSetHSV, "Color set to H=%d S=%d V=%d\r\n", hue, saturation, value);
                 app_usbd_cdc_acm_write(&usb_cdc_acm, messageSetHSV, strlen(messageSetHSV));
                 set_hsv_color(hue, saturation, value, &hsv_color);
-            } else {
+            } else 
+            {
                 app_usbd_cdc_acm_write(&usb_cdc_acm, messageHSV, strlen(messageHSV));
             }
         }
@@ -153,16 +136,14 @@ static void usb_ev_handler(app_usbd_class_inst_t const * p_inst,
             if (commandLength < MAX_COMMAND_LENGTH - 1) {
                 commandBuffer[commandLength] = m_rx_buffer[0];            
                 commandLength++;
-                commandBuffer[commandLength] = '\0'; // Завершаем строку нулевым символом
+                commandBuffer[commandLength] = '\0'; 
             }
-
 
             if (m_rx_buffer[0] == '\r' || m_rx_buffer[0] == '\n') {
                 ret = app_usbd_cdc_acm_write(&usb_cdc_acm, "\r\n", 2);
 
                 checkCommand(commandBuffer, commandLength);
 
-                // Очищаем буфер команды
                 memset(commandBuffer, 0, sizeof(commandBuffer));
                 commandLength = 0;
             }
