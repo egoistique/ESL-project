@@ -83,25 +83,42 @@ void checkCommand(const char *commandBuffer, size_t length) {
     const char *rgbCommand = "RGB";
     const char *hsvCommand = "HSV";
 
+    const char *messageHelp = "RGB <red> <green> <blue> - the device sets current color to specified one.\r\n"
+                              "HSV <hue> <saturation> <value> - the same with RGB, but color is specified in HSV.\r\n"
+                              "help - print information about supported commands\r\n";
+
+    const char *messageRGB = "RGB values should be in the range [0...255]\r\n";
+
+    const char *messageHSV = "HSV values should be within these limits: hue [0...360], staturation and value [0...100]\r\n";
+
+    const char *messageSetRGB = "You set rgb values\r\n";
+    const char *messageSetHSV = "You set hsv values\r\n";
+
+
     if (length >= strlen(helpCommand) && strncmp(commandBuffer, helpCommand, strlen(helpCommand)) == 0) {
         NRF_LOG_INFO("HELP COMMAND");
-        app_usbd_cdc_acm_write(&usb_cdc_acm, "i can help\r\n", 12);
+        app_usbd_cdc_acm_write(&usb_cdc_acm, messageHelp, strlen(messageHelp));
     } else if (length >= strlen(rgbCommand) && strncmp(commandBuffer, rgbCommand, strlen(rgbCommand)) == 0) {
+        NRF_LOG_INFO("RGB COMMAND");
         int red, green, blue;
         if (sscanf(commandBuffer, "RGB %d %d %d", &red, &green, &blue) == 3) {
-            if (red >= 1 && red <= 255 && green >= 1 && green <= 255 && blue >= 1 && blue <= 255) {
-                app_usbd_cdc_acm_write(&usb_cdc_acm, "you set rgb values\r\n", 20);
+            if (red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255) {
+                app_usbd_cdc_acm_write(&usb_cdc_acm, messageSetRGB, strlen(messageSetRGB));
                 set_rgb_color(red, green, blue, &hsv_color);
 
+            } else {
+                app_usbd_cdc_acm_write(&usb_cdc_acm, messageRGB, strlen(messageRGB));
             }
         }
     } else if (length >= strlen(hsvCommand) && strncmp(commandBuffer, hsvCommand, strlen(hsvCommand)) == 0) {
+        NRF_LOG_INFO("HSV COMMAND");
         int hue, saturation, value;
         if (sscanf(commandBuffer, "HSV %d %d %d", &hue, &saturation, &value) == 3) {
-            if (hue >= 1 && hue <= 360 && saturation >= 1 && saturation <= 100 && value >= 1 && value <= 100) {
-                app_usbd_cdc_acm_write(&usb_cdc_acm, "you set hsv values\r\n", 20);
+            if (hue >= 0 && hue <= 360 && saturation >= 0 && saturation <= 100 && value >= 0 && value <= 100) {
+                app_usbd_cdc_acm_write(&usb_cdc_acm, messageSetHSV, strlen(messageSetHSV));
                 set_hsv_color(hue, saturation, value, &hsv_color);
-
+            } else {
+                app_usbd_cdc_acm_write(&usb_cdc_acm, messageHSV, strlen(messageHSV));
             }
         }
     }
@@ -170,7 +187,7 @@ static void usb_ev_handler(app_usbd_class_inst_t const * p_inst,
     }
 }
 
- static const int32_t leds[] = LEDS;
+static const int32_t leds[] = LEDS;
 
 void logs_init()
 {
