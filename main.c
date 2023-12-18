@@ -50,14 +50,52 @@ APP_USBD_CDC_ACM_GLOBAL_DEF(usb_cdc_acm,
                             APP_USBD_CDC_COMM_PROTOCOL_NONE);
 
 
+void set_rgb_color(int red, int green, int blue){
+    pwm_values.channel_1 = red;
+    pwm_values.channel_2 = green;
+    pwm_values.channel_3 = blue;
+}
+
+void set_hsv_color(int h, int s, int v, struct hsv *hsv_color){
+    struct RGB the_color;
+
+    hsv_color->hue = h;
+    hsv_color->saturation = s;
+    hsv_color->value = v;
+
+    hsv2rgb(*hsv_color, &the_color);
+    pwm_values.channel_1 = the_color.red;
+    pwm_values.channel_2 = the_color.green;
+    pwm_values.channel_3 = the_color.blue;
+
+}
 
 void checkCommand(const char *commandBuffer, size_t length) {
     const char *helpCommand = "help";
+    const char *rgbCommand = "RGB";
+    const char *hsvCommand = "HSV";
+
     if (length >= strlen(helpCommand) && strncmp(commandBuffer, helpCommand, strlen(helpCommand)) == 0) {
         NRF_LOG_INFO("HELP COMMAND");
-        // если введена команда "help", выводим сообщение
         app_usbd_cdc_acm_write(&usb_cdc_acm, "i can help\r\n", 12);
-       
+    } else if (length >= strlen(rgbCommand) && strncmp(commandBuffer, rgbCommand, strlen(rgbCommand)) == 0) {
+        int red, green, blue;
+        if (sscanf(commandBuffer, "RGB %d %d %d", &red, &green, &blue) == 3) {
+            if (red >= 1 && red <= 255 && green >= 1 && green <= 255 && blue >= 1 && blue <= 255) {
+                app_usbd_cdc_acm_write(&usb_cdc_acm, "you set rgb values\r\n", 20);
+                set_rgb_color(red, green, blue);
+
+            }
+        }
+    } else if (length >= strlen(hsvCommand) && strncmp(commandBuffer, hsvCommand, strlen(hsvCommand)) == 0) {
+        int hue, saturation, value;
+        if (sscanf(commandBuffer, "HSV %d %d %d", &hue, &saturation, &value) == 3) {
+            if (hue >= 1 && hue <= 360 && saturation >= 1 && saturation <= 100 && value >= 1 && value <= 100) {
+                app_usbd_cdc_acm_write(&usb_cdc_acm, "you set hsv values\r\n", 20);
+                set_hsv_color(hue, saturation, value, &hsv_color);
+
+            }
+        }
     }
 }
 
@@ -135,6 +173,7 @@ void logs_init()
 }
 
 
+
 int main(void)
 {
     logs_init();
@@ -147,7 +186,7 @@ int main(void)
     ret_code_t ret = app_usbd_class_append(class_cdc_acm);
     APP_ERROR_CHECK(ret);
 
-     struct RGB the_color;
+    struct RGB the_color;
 
     read_data_from_nvm(&hsv_color);
 
