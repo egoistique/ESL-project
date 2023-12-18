@@ -19,9 +19,7 @@
 #include "app_usbd_serial_num.h"
 #include "app_usbd_cdc_acm.h"
 
-
 #define READ_SIZE 1
-
 #define MAX_COMMAND_LENGTH 20
 
 static char m_rx_buffer[READ_SIZE];

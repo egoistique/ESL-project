@@ -38,6 +38,7 @@
         "app_usbd_serial_num.h": "c",
         "nrf_log_default_backends.h": "c",
         "app_usbd_cdc_acm.h": "c",
-        "type_traits": "c"
+        "type_traits": "c",
+        "cli.h": "c"
     }
 }
