@@ -82,7 +82,7 @@
 
 #include "estc_service.h"
 
-#define DEVICE_NAME                     "ESTC-GATT"                             /**< Name of device. Will be included in the advertising data. */
+#define DEVICE_NAME                     "ESTC-GATT"                              /**< Name of device. Will be included in the advertising data. */
 #define MANUFACTURER_NAME               "NordicSemiconductor"                   /**< Manufacturer. Will be passed to Device Information Service. */
 #define APP_ADV_INTERVAL                300                                     /**< The advertising interval (in units of 0.625 ms. This value corresponds to 187.5 ms). */
 
@@ -101,20 +101,29 @@
 
 #define DEAD_BEEF                       0xDEADBEEF                              /**< Value used as error code on stack dump, can be used to identify stack location on stack unwind. */
 
+#define NOTIFY_CHAR_TIMEOUT     400
+#define IDENTIFY_CHAR_TIMEOUT   800
+
 NRF_BLE_GATT_DEF(m_gatt);                                                       /**< GATT module instance. */
 NRF_BLE_QWR_DEF(m_qwr);                                                         /**< Context for the Queued Write module.*/
 BLE_ADVERTISING_DEF(m_advertising);                                             /**< Advertising module instance. */
+
+APP_TIMER_DEF(m_notify_char_timer_id);
+APP_TIMER_DEF(m_identify_char_timer_id);
 
 static uint16_t m_conn_handle = BLE_CONN_HANDLE_INVALID;                        /**< Handle of the current connection. */
 
 static ble_uuid_t m_adv_uuids[] =                                               /**< Universally unique service identifiers. */
 {
     {BLE_UUID_DEVICE_INFORMATION_SERVICE, BLE_UUID_TYPE_BLE},
-    // TODO: 7. Add ESTC service UUID to the table
-    {ESTC_SERVICE_UUID, BLE_UUID_TYPE_VENDOR_BEGIN}
+     // TODO: 7. Add ESTC service UUID to the table
+    {ESTC_SERVICE_UUID, BLE_UUID_TYPE_BLE}
 };
 
 ble_estc_service_t m_estc_service; /**< ESTC example BLE service */
+
+static uint8_t m_notify_char_value = 0;
+static uint8_t m_identify_char_value = 0;
 
 static void advertising_start(void);
 
@@ -139,10 +148,38 @@ void assert_nrf_callback(uint16_t line_num, const uint8_t * p_file_name)
  *
  * @details Initializes the timer module. This creates and starts application timers.
  */
+
+static void notify_char_timeout_handler(void *p_context)
+{
+    ret_code_t error_code;
+
+    m_notify_char_value++;
+
+    error_code = estc_ble_char_notify_value_update(&m_estc_service, m_notify_char_value);
+
+    (void) error_code;
+}
+
+static void identify_char_timeout_handler(void *p_context)
+{
+    ret_code_t error_code;
+
+    m_identify_char_value++;
+
+    error_code = estc_ble_char_indicate_value_update(&m_estc_service, m_identify_char_value);
+
+    (void) error_code;
+}
+
 static void timers_init(void)
 {
     // Initialize timer module.
     ret_code_t err_code = app_timer_init();
+    APP_ERROR_CHECK(err_code);
+
+    err_code = app_timer_create(&m_notify_char_timer_id, APP_TIMER_MODE_REPEATED, notify_char_timeout_handler);
+    APP_ERROR_CHECK(err_code);
+    err_code = app_timer_create(&m_identify_char_timer_id, APP_TIMER_MODE_REPEATED, identify_char_timeout_handler);
     APP_ERROR_CHECK(err_code);
 }
 
@@ -278,6 +315,12 @@ static void conn_params_init(void)
  */
 static void application_timers_start(void)
 {
+    ret_code_t err_code;
+
+    err_code = app_timer_start(m_notify_char_timer_id, NOTIFY_CHAR_TIMEOUT, NULL);
+    APP_ERROR_CHECK(err_code);
+    err_code = app_timer_start(m_identify_char_timer_id, IDENTIFY_CHAR_TIMEOUT, NULL);
+    APP_ERROR_CHECK(err_code);
 }
 
 
@@ -356,6 +399,7 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
             m_conn_handle = p_ble_evt->evt.gap_evt.conn_handle;
             err_code = nrf_ble_qwr_conn_handle_assign(&m_qwr, m_conn_handle);
             APP_ERROR_CHECK(err_code);
+
             break;
 
         case BLE_GAP_EVT_PHY_UPDATE_REQUEST:
@@ -376,6 +420,7 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
             err_code = sd_ble_gap_disconnect(p_ble_evt->evt.gattc_evt.conn_handle,
                                              BLE_HCI_REMOTE_USER_TERMINATED_CONNECTION);
             APP_ERROR_CHECK(err_code);
+
             break;
 
         case BLE_GATTS_EVT_TIMEOUT:
@@ -460,9 +505,6 @@ static void advertising_init(void)
     init.advdata.flags                   = BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
 
     // TODO: 8. Consider moving the device characteristics to the Scan Response if necessary
-    // init.advdata.uuids_complete.uuid_cnt = sizeof(m_adv_uuids) / sizeof(m_adv_uuids[0]);
-    // init.advdata.uuids_complete.p_uuids  = m_adv_uuids;
-
     init.srdata.uuids_complete.uuid_cnt = sizeof(m_adv_uuids) / sizeof(m_adv_uuids[0]);
     init.srdata.uuids_complete.p_uuids  = m_adv_uuids;
 
@@ -566,6 +608,9 @@ int main(void)
     {
         idle_state_handle();
     }
+
+    app_timer_stop(m_notify_char_timer_id);
+    app_timer_stop(m_identify_char_timer_id);
 }
 
 
